@@ -1,0 +1,72 @@
+1. Tail = [h,e,a,d]
+   Head = [t,a,i,l].
+-------- 2. FALSE  karena Instansinya Implisit
+3. A = 1
+   B = [2,3]
+   C = 2
+   D = [3]
+   E = 3
+4. H1 = 1
+   H2 = 2
+   T  = [3]
+--------- Z = 1 + 2
+5. %R = 8  
+   %S = 8
+EROR no Instansinya
+
+SOAL 2 NYERAH
+add123so_on(L1,L2,L2).
+add123so_on([H|T],Acc,L2):- Hnew is H + 1,add123so_on(T,[_|Hnew],L2).
+
+
+Soal nomor 2
+add123([],[],_).
+add123([H1|T1],[H2|T2],Adder):-
+    H2 is H1 + Adder,
+    add123(T1,T2,Adder).
+wrapper(L1,L2):-add123(L1,L2,1).
+
+
+
+
+
+SOAL 3
+sumList([],TotalSum,TotalSum).
+sumList([H|T],Hold,TotalSum):- NewHold is H + Hold,sumList(T,NewHold,TotalSum).
+sumListWrap(X,Y):-sumList(X,0,Y).
+sumListWrap([1,2,3],X).
+X = 6
+sumListWrap([1,2,3],6).
+1true
+
+
+
+
+
+
+SOAL 4
+link(a,h).
+link(h,t).
+link(t,q).
+
+antilink(h,a).
+antilink(t,h).
+antilink(q,t).
+
+koneksi(X,Y):-link(X,Y).
+koneksi(X,Y):-link(X,Z),koneksi(Z,Y).
+
+antikoneksi(X,Y):-antilink(X,Y).
+antikoneksi(X,Y):-antilink(X,Z),antikoneksi(Z,Y).
+
+koneksiWrap(X,Y):-koneksi(X,Y);antikoneksi(X,Y).
+SOAL 5
+
+
+
+
+
+
+
+
+

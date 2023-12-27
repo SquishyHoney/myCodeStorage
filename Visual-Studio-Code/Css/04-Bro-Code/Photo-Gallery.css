@@ -1,0 +1,30 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Gallery-Box{
+    border: 3px solid black;
+    border-radius: 15px;
+    width: 320px;
+}
+
+.Gallery-Box:hover{
+    border: 3px solid rgb(168, 156, 156)
+}
+
+.Gallery-Box img{
+    width: 100%;
+    height: auto;
+}
+
+.Gallery-Box{
+    display: inline-block;
+    margin:5px;
+}
+
+.Description{
+    text-align: center;
+}
+

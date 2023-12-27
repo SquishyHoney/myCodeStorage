@@ -1,0 +1,106 @@
+
+YES OR NO
+?-numeral(succ(succ(succ(succ(0))))).
+
+f(x) = x + 1
+g(x) = x * 2
+f(g(g(g(g(x)))))
+
+x = 2
+f(g(g(g(g(2))))) 
+
+f(2) = 
+
+X = 2
+Y = 2
+PROLOG yes or no / INSTANTASI
+Liat dari atas
+Fact->Rule->Instantsi
+-------------------------------------------
+numeral(0).
+numeral(succ(X)):-numeral(X).
+
+?-TRUE                                         
+TRUE
+
+, -> dan
+; -> or 
+
+
+
+anak(aa,bb).
+anak(bb,cc).
+anak(cc,dd).
+anak(dd,ee).
+
+descend(X,Y):- anak(X,Y).
+descend(X,Z):- anak(X,Y),descend(Y,Z).
+
+
+?- descend(A,B).
+
+=-------------------------=
+Liat dari atas
+Fact->Rule->Instantsi
+
+child(anna,bridget).
+
+child(bridget,caroline).
+
+child(caroline,donna).
+
+child(donna,emily).
+
+X = anna
+Y = bridget
+
+
+
+
+
+
+
+
+
+descend(X,Y):- child(X,Y). 
+descend(X,Y):- child(X,Z), descend(Z,Y).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?- descend(A,B):- child(A,B).
+A = anna
+B = bridget
+A = bridget
+B = caroline
+A = caroline
+B = donna
+A = donna 
+B = emily
+2 generasi descend(anna,caroline):- child(anna,Z), child(Z,caroline).
+X = anna
+Y = caroline
+X = bridget
+Y = donna
+
+3 generasi descend(X,Y):- child(X,Z), child(), child(), child(), descend().
+
+True 
+
+

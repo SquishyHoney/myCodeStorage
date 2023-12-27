@@ -1,0 +1,108 @@
+2. Fact,Rule,Klause,Predikat
+fact 6:
+mobil()
+mobil()
+suka()
+suka()
+tim()
+tim()
+rule 3 :
+suka_mobil(X,Y) :- suka(X,Z),mobil(Z,Y).
+tim1(Q) :- tim(P,Q),P=inggris.
+tim2(Q) :- tim(P,Q),P=_.
+Klause 9 :
+Predikat 6 :
+
+
+
+NOMOR 3 
+?- tim1(X)
+tim(inggris,Q).
+Q = aresenal
+?- tim2(X).
+tim()
+X = arsenal 
+X = schalke
+?- suka_mobil(X,inggris).
+- suka(X,jaguar),mobil(jaguar,inggris).
+X = saya
+?- suka_mobil(saya,X).
+- suka(saya,Z),mobil(Z,X).
+Z = jaguar 
+inggris
+X = inggris.
+
+
+NOMOR 4:
+%data_profil(nama , prodi, gender , asal)
+data_profil(aryo,if,pria,solo).
+data_profil(raisa,si,wanita,surabaya).
+data_profil(joko,sk,pria,yogyakarta).
+data_profil(kintan,if,wanita,solo).
+data_profil(hans,sk,pria,jakarta).
+
+data_minat(aryo,database).
+data_minat(raisa,database).
+data_minat(joko,game_dev).
+data_minat(kintan,sw_dev).
+data_minat(hans,sw_dev).
+
+mhs_per_jurusan(X,Y):-data_profil(X,Y,_,_)
+mhs_wanita_per_kota_asal(X,Y):-data_profil(X,_,wanita,Y).
+mhs_pria_per_minat(X,Y):-data_profil(X,_,pria,_),data_minat(X,Y).
+%X = aryo
+%Y = database
+?- mhs_per_jurusan_dan_minat_non_database(X,if).
+nama 
+jurusan 
+minat selain database
+?- mhs_per_jurusan_dan_minat_non_database(X,if).
+
+ ---------------------------------mhs_per_jurusan_dan_minat_non_database(X,Y):-data_profil(X,Y,_,_),not (Z = database).
+
+list([],0).
+list([H|T],notDone):-list(T,notDone).
+
+
+
+SEARCH TREE : konek(adi,said)
+konek(adi,budi)
+TRUE
+
+wa(adi,gita).
+wa(said,erik).
+wa(gita,budi).
+wa(cecep,hasan).
+wa(budi,said).
+
+koneksi(X,Y):- wa(X,Y).
+koneksi(X,Y):- wa(X,Z),koneksi(Z,Y).
+
+
+                konek(adi,said) !
+                 /            \ 
+    koneksi(X,Y):- wa(X,Y).    \
+    X = adi                     \
+    Y = said              koneksi(a,s):- wa(a,Z),koneksi(Z,s).
+    wa(adi,said).              /                       \
+        |               Z = gita                        \
+    FALSE              koneksi(gita,s):-                   |
+                           wa(gita,s)           koneksi(gita,s):- wa(gita,Z),koneksi(Z,s).
+                             |                     /
+                            FALSE             wa(gita,Z)      
+                                                Z = budi 
+                                                   |
+                                                koneksi(budi,s)
+                                                  | 
+                                                  wa(budi,s)
+                                                    |
+                                                    TRUE
+
+
+
+
+
+
+
+
+

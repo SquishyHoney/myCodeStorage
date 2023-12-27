@@ -1,0 +1,75 @@
+Database End User : 
+- Casual User
+- Sophisticated
+- parametric
+- Standalone
+
+Actors :
+- Administrators
+- Designers
+- User
+- Software Engineers
+
+Meta Data, descriptif information of a database
+
+Constructing database -> store in a medium using DBMS
+
+Mengunakan concurrency control agar pemasukan data tidak bertabrakan
+
+The description of a database is called the database schema
+
+A transaction : changing data base one or mrore
+
+Database is Collection of related Data 
+
+DBMS : Defining , Constructm, Manipulating, Sharing
+Advantage :
+ - Control redundancy
+ - Restrict forbidden access 
+ - Providing storage for efficient
+ - Providing Backup
+ - Enforcing integrity
+
+
+Int constraint :
+ - Data type 
+ - Referential integrity
+ - Key contraints uniqueness
+
+Data Definition Language (DDL): -> Buat main
+ CREATE,ALTER,Truncate, Drop
+Data Manipulation Language (DML): -> Buat isi
+ SELECT,INSERT,UPDATE, DELETE
+
+
+SELECT
+FROM
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+LIMIT
+
+
+Redundancy in storing Eror :
+ - Duplication
+ - Waste Memory
+ - Inconsistent
+
+Index: Specilized algorithm to find data
+Buffering module: maintains parts of the database in main memory buffers
+Query processing and optimization : Choose storage based on query
+
+
+A row is called a tuple
+A column header is called an attribute
+The table is called a relation
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+SAVEPOINT test;
+ROLLBACK TO SAVEPOINT test;
+
+

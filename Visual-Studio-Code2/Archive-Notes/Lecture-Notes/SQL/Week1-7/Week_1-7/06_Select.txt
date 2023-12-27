@@ -1,0 +1,111 @@
+SELECT * FROM Mahasiswa;
+MariaDB [Latihan]> SELECT * FROM Mahasiswa;
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Ragnvindr   | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Gunnhildr   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
+| 109 | Akedo      | Kaka        | M      | 1.23 |      111 | NULL       |  487020 |
+| 201 | Secret     | Agent       | NULL   | 3.75 |      101 | 1995-05-15 |    NULL |
+| 202 | Amber      | Eberhart    | F      | 3.85 |      102 | 1996-02-20 |    NULL |
+| 203 | Julia      | Lea         | F      | 1.60 |      103 | 2006-08-10 |  580000 |
+| 204 | Ayumi      | Shinoda     | F      | 3.95 |      104 | 1980-11-25 |  540000 |
+| 205 | Kaedehara  | Kazuha      | M      | NULL |      105 | 1995-09-30 |  490000 |
+| 206 | Yanfei     | Meng        | F      | NULL |      106 | 1998-04-05 |  600000 |
+| 207 | Albedo     | Kreideprinz | NULL   | 3.55 |      107 | 1993-12-15 |  450000 |
+| 208 | Eula       | Lawrence    | F      | 4.00 |      108 | NULL       |  570000 |
+| 209 | Childe     | Tartaglia   | M      | 3.90 |      109 | NULL       |  480000 |
+| 210 | Qiqi       | Chi         | F      | 3.65 |      110 | 1994-06-28 |  420000 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+21 rows in set (0.001 sec)
+
+//if i have a gpa of 3.15 who am i smarter than
+SET @gpa = 3.15;
+
+SELECT * FROM Mahasiswa 
+WHERE @gpa > gpa;
++-----+------------+-----------+--------+------+----------+------------+---------+
+| id  | first_name | last_name | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-----------+--------+------+----------+------------+---------+
+|  99 | John       | Doe       | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 104 | Wierd      | Al        | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda   | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne     | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 109 | Akedo      | Kaka      | M      | 1.23 |      111 | NULL       |  487020 |
+| 203 | Julia      | Lea       | F      | 1.60 |      103 | 2006-08-10 |  580000 |
++-----+------------+-----------+--------+------+----------+------------+---------+
+
+//Don't forget to null it
+SET @gpa = NULL;
+
+Sub queries
+//Contoh mencari yang diatas rata2 
+SELECT concat(first_name,' ',last_name) AS 'Full Name',gpa AS nilai ,(SELECT AVG(gpa) from Mahasiswa) AS 'Rata2'
+FROM Mahasiswa 
+Where gpa > (select avg(gpa) from mahasiswa);
+
++---------------------+-------+----------+
+| Full Name           | nilai | Rata2    |
++---------------------+-------+----------+
+| Tony Stark          |  3.15 | 3.102105 |
+| Diluc Ragnvindr     |  3.99 | 3.102105 |
+| Mona Megistus       |  3.48 | 3.102105 |
+| Jean Gunnhildr      |  3.52 | 3.102105 |
+| Harriet SugarCookie |  3.98 | 3.102105 |
+| Secret Agent        |  3.75 | 3.102105 |
+| Amber Eberhart      |  3.85 | 3.102105 |
+| Ayumi Shinoda       |  3.95 | 3.102105 |
+| Albedo Kreideprinz  |  3.55 | 3.102105 |
+| Eula Lawrence       |  4.00 | 3.102105 |
+| Childe Tartaglia    |  3.90 | 3.102105 |
+| Qiqi Chi            |  3.65 | 3.102105 |
++---------------------+-------+----------+
+
+SELECT actor_id, salary
+FROM (SELECT actor_id, salary
+FROM roles
+GROUP BY actor_id
+HAVING COUNT(*) = 1) AS single_act
+ORDER BY salary DESC
+LIMIT 3;
+????????????????
+
+
+MINIMUM ( < ALL)
+MAXIMUM ( > ALL)
+//Mencari Oldest 
+SELECT concat(first_name,' ',last_name) AS 'Full Name', year(birth_date)
+FROM Mahasiswa
+WHERE birth_date < ALL (SELECT birth_date FROM Mahasiswa WHERE year(birth_date) % 2 <> 0);
++---------------+------------------+
+| Full Name     | year(birth_date) |
++---------------+------------------+
+| Mona Megistus |             1972 |
++---------------+------------------+
+1 row in set (0.001 sec)
+
+MariaDB [Latihan]>
+SELECT concat(first_name,' ',last_name) AS 'Full Name', year(birth_date)
+FROM Mahasiswa
+WHERE birth_date IN (SELECT birth_date FROM Mahasiswa WHERE year(birth_date) % 2 <> 0);
++--------------------+------------------+
+| Full Name          | year(birth_date) |
++--------------------+------------------+
+| Tony Stark         |             1985 |
+| Diluc Ragnvindr    |             1979 |
+| Jean Gunnhildr     |             1993 |
+| Wierd Al           |             1999 |
+| Secret Agent       |             1995 |
+| Kaedehara Kazuha   |             1995 |
+| Albedo Kreideprinz |             1993 |
++--------------------+------------------+
+Genap semua

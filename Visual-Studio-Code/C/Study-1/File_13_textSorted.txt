@@ -1,0 +1,14 @@
+Albedo/ Sword/83
+Ayaka/ Sword/80
+Diluc/ Claymore/89
+Eula/ Claymore/84
+Ganyu/ Bow/84
+Hu Tao/ Polearm/85
+Klee/ Catalyst/81
+Mona/ Catalyst/87
+Raiden Shogun/Spear/87
+Rosaria/ Polearm/79
+Tartaglia/ Bow/86
+Venti/ Bow/90
+Xiao/ Polearm/80
+Zhongli/ Polearm/82

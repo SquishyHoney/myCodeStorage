@@ -1,0 +1,34 @@
+01_Console.log
+Promise
+
+02_Console.log
+Asynce function
+
+03_Console.log
+Await function
+
+04_import Export
+Module
+
+05_Documents OM
+-IMPORTANT-
+
+06_Element Selectors
+all of it  
+
+07_Query Selectors
+Using this to select like css
+
+08_dom transversal???
+
+09_List and Html Elements
+
+10_Changing CSS contents
+
+11_events
+
+12_add event Listeneer
+
+13_visibility
+
+14_

@@ -1,0 +1,28 @@
+/*
+.className{
+
+    Size:
+
+    display: 
+    margin: 
+
+/////////////////////
+    Coloring
+    Animation
+}
+*/
+
+.formBox{
+
+    padding:5px;
+
+    border: 2px solid pink;
+}
+
+#string{
+    color: rgb(236, 18, 138);
+    font-family: comic sans ms;
+    font-size: 20px;
+}
+
+

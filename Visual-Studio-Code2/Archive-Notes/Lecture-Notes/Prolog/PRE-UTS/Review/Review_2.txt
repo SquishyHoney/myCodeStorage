@@ -1,0 +1,208 @@
+SEARCH TREE:
+true-false
+
+Week2 UNIFICATION :
+mia and mia Unify
+42 and 42 Unify
+
+
+woman(mia) and woman(mia) Unify
+
+mia and john DO NOT Unify
+woman(mia) and woman(jody) DO NOT Unify
+
+INSTANTATIONS
+woman(mia).
+?-woman(Z) 
+Z = mia.
+TRUE
+
+?- X = mia , X = john.
+FALSE
+
+Example with Complex Terms
+?- k(s(g),Y) = k(X,t(k)).
+X = s(g)
+Y = t(k)
+
+VARIABLKE = SPONGE 
+
+k(A) = k(B).
+A = s(g), Y
+B = X,    t(k)
+
+Y = t(k).
+X = s(g).
+
+int x = 10;
+
+
+a. Jelaskan maksud dari unifikasi dalam Prolog !
+b. Jelaskan respon Prolog untuk query berikut :
+
+?- Mahasiswi=laila, Mahasiswi=linda.
+
+a. dalam prolog ... ada sesuatu yang anamnya INSTANTSI yang artinya .....
+..... Sehingga Variable di prolog bisa kita tarukan nilai (variable bersifat seperti spons)
+b. karena M..vv sehingga kita bisa membuat 
+Mahasiswi = laila
+Mahasiswi = linda 
+nah karena M yang....v sudah di instansi laila duluan maka hasil query yang kedua akan menciptakan false
+karena dia 1 . menyocokin apakah laila dan linda itu sama 
+           2.  menginstansi var M ... padahal  var M... sudah ada nilainya
+
+
+a. Jelaskan maksud dari rekursi dalam Prolog !
+b. Jelaskan perbedaan antara base clause dan recursive clause !
+
+descend(X,Y):- child(X,Y)
+descend(X,Y):- child(X,Z),descend(Z,Y).
+
+tambah([1,2,3], X) -> [2,3,4]
+
+[1,2,3]
+[2,3]
+[3]
+[]
+
+tambah([]).
+tambah([H|T],[_|NewH]):- NewH is H + 1,tambah(L,[_|NewH]).
+
+tambah([]).
+tambah([1|[2,3]],[_|NewH]):- NewH is 1 + 1,tambah([2,3],[_|NewH])
+                            tambah([2|[3]],[_|NewH]):- NewH is 1+2, tambah([3],[_|NewH])
+                                                            tambah([3|[]],[_|NewH]):- NewH is 3 + 1, TRUE
+
+
+Diketahui knowledge base berikut :
+pulau(jawa).
+pulau(sumatera).
+pulau(sulawesi).
+prov(jawa,timur).
+prov(sumatera,barat).
+prov(jawa,barat).
+prov(sulawesi,barat).
+kota(jakarta,barat).
+kota(jakarta,timur).
+kawasan(Barat):- kota(Barat,barat);pulau(Barat),prov(Barat,barat).
+
+Tuliskan respon Prolog dan gambarkan search tree untuk query berikut :
+?- kawasan(Jakarta).
+
+
+
+
+
+ =
+ ==
+3 + 2 = 3 + 2
+False 
+5 = 3 + 2
+3 + 2 =:= 5
+false 
+
+
+Buatlah predikat middle(L,X) dengan L merupakan list dan X merupakan elemen tengah dari L,
+dengan ketentuan :
+# Bila n adalah panjang elemen L, dan n adalah genap, maka X adalah elemen ke n/2
+# Bila n adalah panjang elemen L, dan n adalah ganjil, maka X adalah elemen ke n/2 + 1/2
+Contoh penggunaan :
+middle([1,2,3,4,5],Mid) -> Mid = 3
+middle([1,2,3,4],2) -> true
+
+MODIFIER
+PROMPT1
+PROMPT2
+
+query() :- akal
+
+?-query
+
+
+dik : 
+
+Scenario 1 >>> 
+mod(len,2) =:= 0 -> X is len/2
+
+Scenario 2 >>> 
+mod(len,2) =:= 1 -> X is len/2 + 1/2
+
+X = element_tengah L 
+L = list
+middle(L,X)
+
+
+accLen([],Acc,Acc).
+accLen([H|T],OldAcc,Len):- NewAcc is OldAcc + 1,accLen(T,NewAcc,Len).
+%Len 
+
+tengah(Mid,Len):- mod(len,2) =:= 0, Mid is Len/2.
+tengah(Mid,Len):- mod(len,2) =:= 0, Mid is (Len/2) + (1/2).
+
+middle(List,X):- 
+
+
+
+
+
+
+?- middle([1,2,3,4,5],Mid)
+Mid = 3
+TRUE 
+
+
+
+
+% Predicate to find the length of a list.
+len([], 0).
+len([_|T], L) :- len(T, L1), L is L1 + 1.
+
+
+% Predicate to find the middle element.
+tengah(Mid, List) :-
+    len(List, Len),
+    Len mod 2 =:= 0,  % If the length is even
+    MidIndex is Len // 2,
+    nth0(MidIndex, List, Mid).
+
+tengah(Mid, List) :-
+    len(List, Len),
+    Len mod 2 =:= 1,  % If the length is odd
+    MidIndex is Len // 2,
+    nth0(MidIndex, List, Mid).
+
+
+
+
+
+% Predicate to get the middle element of a list.
+middle(List, Mid) :-
+    tengah(Mid, List).
+
+
+
+
+
+
+
+
+panjang(A,B):- 0 is mod(B,2), A is B/2,!.
+panjang(A,B):- 1 is mod(B,2), A is (B/2)+(1/2).
+
+accMiddle([X|_], X,0).
+accMiddle([X|_], X,0.0).
+
+accMiddle([_|T], X,L ):-L2 is L-1,accMiddle(T, X, L2).
+
+middle([H|T], X):-length([H|T], L1), panjang(L,L1), L2 is L-1, accMiddle([H|T], X, L2).
+
+
+middle([1,2,3,4,5],Mid)  Mid = 3
+middle([1,2,3,4],2)  true
+
+
+
+
+
+
+

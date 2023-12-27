@@ -1,0 +1,72 @@
+Database
+ Database Management System (DBMS)
+ Characteristics of the Database Approach
+ Actors on the Scene
+ Advantages of Using the DBMS Approach
+ When Not to Use a DBMS
+
+Data Model
+ Three-Schema Architecture
+ Data Independence
+ DBMS Languages
+ Database System Environment
+ Architectures for DBMSs
+
+---------------------------
+
+-Data base dibagi 2 Requirements : 
+    1. Functional Requirements, A function for a shopping cart
+    2. Data Requirements, What data does user need
+
+
+-Physical Design :
+    1. Rectangle = Main Entity (Company, Worker, Etc)
+    2. Circular Oval = Attributes (Sifat dari Entity tersebut)
+       Types  Of Attributes :
+
+        I. Divisible [Percabangan] : 
+          - Simple, Tidak Bisa di bagi lagi (ID, Warna,)
+          - Composite, Bisa di bagi (Tanggal menjadi bulan,hari,tahun)
+
+        II. How many Values [2 Bulatan] :
+          - Single, Hanya 1 (Nama,tinggi,berat)
+          - Multivalued, Bisa lebih (Alamat, Nomor, Etc)
+
+        III. Derived Attributes [Garis Pisah] :
+          - Bisa diambil dari data lain Name -> First,Last
+
+        IV. Uniqueness Constraint / Key Attribute :
+          - Underline 
+          - Key Entity
+
+
+
+-NULL Values :
+    1. Attribute bisa NULL jika tidak diisi dan tidak penting (Excull, UKM, Organisasi)
+    2. Juga bisa buat Sesuatu yang kita belum tau (Nomor hp Org)
+
+
+- Entity Types and Sets 
+    _________________________
+    |Employee(Name,Age,Plc) | 
+    -------------------------
+    |e1 (John,30,Medan)   o |
+    |e2 (Fred,23,Jakarta) o |
+    -------------------------
+    Entity Type, Collection of set entities that have the same Attributes
+    Entity Set , Collection of all Entity Type
+
+
+- Relationships
+    I. Unary, Binary, Ternary
+    II. Cardinality :
+        - 1 : N 
+        - N : M
+        - 1 : 1
+    III. Relationship Attributes :
+        - jika 1 : 1 or 1 : N, Attribute bisa di pindahin
+        - Jika M : N di taro di relationshipnya
+
+-Weak Entity, Tidak mempunyai key Attribute sendiri dan di lambangkan dengan [[double Box]]
+-Weak Relation, Tidak bisa exist tanpa entity lain (SIM entity membutuhkan Human entity) Biasa disebut
+ Partial Key

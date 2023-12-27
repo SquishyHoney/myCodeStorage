@@ -1,0 +1,158 @@
+SELECT * FROM mahasiswa;
+MariaDB [Latihan]> select * from mahasiswa;
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Rag         | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Monstad     | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+10 rows in set (0.001 sec)
+
+
+SELECT first_name,balance + 1 as NEW from Mahasiswa;
+MariaDB [Latihan]> SELECT first_name,balance + 1 as NEW from Mahasiswa;
++------------+--------+
+| first_name | NEW    |
++------------+--------+
+| John       | 533073 |
+| Tony       | 470873 |
+| Diluc      | 410203 |
+| Mona       | 570201 |
+| Jean       | 433001 |
+| Wierd      | 496091 |
+| Kwan       | 544201 |
+| Bruce      | 466203 |
+| Miyuki     | 496093 |
+| Harriet    | 580801 |
++------------+--------+
+10 rows in set (0.000 sec)
+
+
+SELECT first_name,last_name,gender FROM Mahasiswa WHERE gender like 'F';
+MariaDB [Latihan]> SELECT first_name,last_name,gender FROM Mahasiswa WHERE gender like 'F';
++------------+-------------+--------+
+| first_name | last_name   | gender |
++------------+-------------+--------+
+| Mona       | Megistus    | F      |
+| Jean       | Monstad     | F      |
+| Kwan       | Kansuda     | F      |
+| Harriet    | SugarCookie | F      |
++------------+-------------+--------+
+
+
+XOR GATE (SELECTING female or gpa > 3)
+SELECT * FROM Mahasiswa WHERE gpa > 3 XOR gender LIKE 'F';
+MariaDB [Latihan]> SELECT * FROM Mahasiswa WHERE gpa > 3 XOR gender LIKE 'F';
++-----+------------+-----------+--------+------+----------+------------+---------+
+| id  | first_name | last_name | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-----------+--------+------+----------+------------+---------+
+| 100 | Tony       | Stark     | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Rag       | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 105 | Kwan       | Kansuda   | F      | 1.08 |      008 | 2006-02-03 |  544200 |
++-----+------------+-----------+--------+------+----------+------------+---------+
+3 rows in set (0.001 sec)
+
+MariaDB [Latihan]> SELECT * FROM MAHASISWA;
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Rag         | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Monstad     | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+10 rows in set (0.000 sec)
+
+
+SELECT * FROM Mahasiswa WHERE first_name LIKE 'J%';
+MariaDB [Latihan]> SELECT * FROM Mahasiswa WHERE first_name LIKE 'J%';
++-----+------------+-----------+--------+------+----------+------------+---------+
+| id  | first_name | last_name | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-----------+--------+------+----------+------------+---------+
+|  99 | John       | Doe       | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 103 | Jean       | Monstad   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
++-----+------------+-----------+--------+------+----------+------------+---------+
+2 rows in set (0.000 sec)
+
+MariaDB [Latihan]> SELECT * FROM Mahasiswa WHERE last_name LIKE '%a_';
++-----+------------+-----------+--------+------+----------+------------+---------+
+| id  | first_name | last_name | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-----------+--------+------+----------+------------+---------+
+| 101 | Diluc      | Rag       | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 103 | Jean       | Monstad   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al        | M      | 1.72 |      005 | 1999-03-28 |  496090 |
++-----+------------+-----------+--------+------+----------+------------+---------+
+3 rows in set (0.000 sec)
+
+'_' Merupakan Variable Yang bisa berubah2
+
+(Selecting Null             )SELECT * FROM table WHERE gpa IS NULL;
+(Liat Jumlah                )SELECT count(*) FROM table WHERE (statement);
+(Liat semua yang statement  )SELECT count(gpa) FROM table WHERE (statement);
+(liat yang beda             )SELECT count(DISTINCT GPA) from table;
+(liat min atau max          )SELECT min(gpa),max(gpa) from table;
+(liat Jumlah                )SELECT sum(balance) from mahasiswa;
+
+SELECT sum(balance) as 'total uang' from mahasiswa;
+MariaDB [Latihan]> SELECT sum(balance) as 'total uang' from mahasiswa;
++------------+
+| total uang |
++------------+
+|    5000730 |
++------------+
+
+
+//MELIHAT orang yang nilainy diatas rata-rata
+MariaDB [Latihan]> select first_name as nama,gpa as nilai from mahasiswa where gpa > (select avg(gpa) from mahasiswa);
++---------+-------+
+| nama    | nilai |
++---------+-------+
+| Tony    |  3.15 |
+| Diluc   |  3.99 |
+| Mona    |  3.48 |
+| Jean    |  3.52 |
+| Bruce   |  2.97 |
+| Harriet |  3.98 |
++---------+-------+
+6 rows in set (0.001 sec)
+
+MariaDB [Latihan]>
+
+MariaDB [Latihan]> select avg(gpa) as rata2 from mahasiswa;
++----------+
+| rata2    |
++----------+
+| 2.946000 |
++----------+
+1 row in set (0.000 sec)
+
+MariaDB [Latihan]> select * from mahasiswa;
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Rag         | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Monstad     | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+10 rows in set (0.000 sec)

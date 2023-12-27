@@ -1,0 +1,236 @@
+Making a table
+create table Mahasiswa(
+    id INT(5) PRIMARY KEY,
+    first_name CHAR(30),
+    last_name CHAR(30),
+    gender CHAR(1) CHECK (gender IN ('M','F')),
+    gpa FLOAT(5,2),
+    seat_num INT(3) ZEROFILL UNIQUE,
+    birth_date DATE,
+    balance INT(20)
+);
+
+
+Keywords:
+
+SHOW DATABASES;
+USE database_name;
+DROP database_name;
+DROP TABLE table_name;
+
+INSERT INTO 
+Mahasiswa(id,first_name,last_name,gender,gpa,seat_num,balance)
+VALUES 
+(101,'Diluc','Rag'         ,'M' ,3.99,2,400200),
+(102,'Mona' ,'Megistus'    ,'F' ,3.48,1,560200),
+(103,'Jean' ,'Monstad'     ,'F' ,3.52,3,423000),
+(99,'John'  ,'Doe'         ,'M' ,2.78,4,523070),
+(104,'Wierd','Al'          ,'M' ,1.72,5,476090),
+(106,'Bruce','Wayne'       ,'M' ,2.97,7,456200),
+(105,'Kwan' ,'Kansuda'     ,'F' ,1.08,8,524200),
+(108,'Harriet','Sugarc'    ,'F' ,3.98,6,570800),
+(100,'Tony' ,'Stark'       ,'M' ,3.15,9,460870),
+(107,'Miyuki' ,'Shirogane' ,'M' ,1.98,10,476090)
+;
+
+
+SELECT * from Mahasiswa;
++-----+------------+-----------+--------+------+----------+------------+---------+
+| id  | first_name | last_name | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-----------+--------+------+----------+------------+---------+
+|  99 | John       | Doe       | M      | 0.99 |      004 | NULL       |  523070 |
+| 100 | Tony       | Stark     | M      | 0.99 |      009 | NULL       |  460870 |
+| 101 | Diluc      | Rag       | M      | 0.99 |      002 | NULL       |  400200 |
+| 102 | Mona       | Megistus  | F      | 0.99 |      001 | NULL       |  560200 |
+| 103 | Jean       | Monstad   | F      | 0.99 |      003 | NULL       |  423000 |
+| 104 | Wierd      | Al        | M      | 0.99 |      005 | NULL       |  476090 |
+| 105 | Kwan       | Kansuda   | F      | 0.99 |      008 | NULL       |  524200 |
+| 106 | Bruce      | Wayne     | M      | 0.99 |      007 | NULL       |  456200 |
+| 107 | Miyuki     | Shirogane | M      | 0.99 |      010 | NULL       |  476090 |
+| 108 | Harriet    | Sugarc    | F      | 0.99 |      006 | NULL       |  570800 |
++-----+------------+-----------+--------+------+----------+------------+---------+
+
+
+SELECT first_name from Mahasiswa 
+WHERE first_name like '_o%';
+//Could be use like Where gpa <> 3; //Gpa not 3
++------------+
+| first_name |
++------------+
+| John       |
+| Tony       |
+| Mona       |
++------------+
+
+DEFAULT 0;
+DEFAULT 'No Name';
+
+
+Add 10,000 to low gpa students
+UPDATE Mahasiswa SET balance = balance + 10000;
+UPDATE Mahasiswa SET balance = balance + 10000 Where GPA < 2;
+MariaDB [Latihan]> SELECT * FROM MAHASISWA;
++-----+------------+-----------+--------+------+----------+------------+---------+
+| id  | first_name | last_name | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-----------+--------+------+----------+------------+---------+
+|  99 | John       | Doe       | M      | 2.78 |      004 | NULL       |  533070 |
+| 100 | Tony       | Stark     | M      | 3.15 |      009 | NULL       |  470870 |
+| 101 | Diluc      | Rag       | M      | 3.99 |      002 | NULL       |  410200 |
+| 102 | Mona       | Megistus  | F      | 3.48 |      001 | NULL       |  570200 |
+| 103 | Jean       | Monstad   | F      | 3.52 |      003 | NULL       |  433000 |
+| 104 | Wierd      | Al        | M      | 1.72 |      005 | NULL       |  496090 |
+| 105 | Kwan       | Kansuda   | F      | 1.08 |      008 | NULL       |  544200 |
+| 106 | Bruce      | Wayne     | M      | 2.97 |      007 | NULL       |  466200 |
+| 107 | Miyuki     | Shirogane | M      | 1.98 |      010 | NULL       |  496090 |
+| 108 | Harriet    | Sugarc    | F      | 3.98 |      006 | NULL       |  580800 |
++-----+------------+-----------+--------+------+----------+------------+---------+
+10 rows in set (0.000 sec)
+
+
+
+//Changing Miyuki gpa to 2.79
+UPDATE Mahasiswa SET gpa = 2.79 Where first_name = 'Miyuki';
+MariaDB [Latihan]> SELECT * FROM MAHASISWA;
++-----+------------+-----------+--------+------+----------+------------+---------+
+| id  | first_name | last_name | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-----------+--------+------+----------+------------+---------+
+|  99 | John       | Doe       | M      | 2.78 |      004 | NULL       |  533070 |
+| 100 | Tony       | Stark     | M      | 3.15 |      009 | NULL       |  470870 |
+| 101 | Diluc      | Rag       | M      | 3.99 |      002 | NULL       |  410200 |
+| 102 | Mona       | Megistus  | F      | 3.48 |      001 | NULL       |  570200 |
+| 103 | Jean       | Monstad   | F      | 3.52 |      003 | NULL       |  433000 |
+| 104 | Wierd      | Al        | M      | 1.72 |      005 | NULL       |  496090 |
+| 105 | Kwan       | Kansuda   | F      | 1.08 |      008 | NULL       |  544200 |
+| 106 | Bruce      | Wayne     | M      | 2.97 |      007 | NULL       |  466200 |
+| 107 | Miyuki     | Shirogane | M      | 2.79 |      010 | NULL       |  496090 |
+| 108 | Harriet    | Sugarc    | F      | 3.98 |      006 | NULL       |  580800 |
++-----+------------+-----------+--------+------+----------+------------+---------+
+10 rows in set (0.000 sec)
+
+
+UPDATE Mahasiswa SET birth_date = DATE_ADD('1970-01-01', INTERVAL FLOOR(RAND() * 365*40) DAY);
+UPDATE Mahasiswa SET birth_date = '1982-12-12' WHERE first_namename = 'Miyuki';
++-----+------------+-----------+--------+------+----------+------------+---------+
+| id  | first_name | last_name | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-----------+--------+------+----------+------------+---------+
+|  99 | John       | Doe       | M      | 2.78 |      004 | 1992-07-12 |  533070 |
+| 100 | Tony       | Stark     | M      | 3.15 |      009 | 1985-06-23 |  470870 |
+| 101 | Diluc      | Rag       | M      | 3.99 |      002 | 1979-10-19 |  410200 |
+| 102 | Mona       | Megistus  | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Monstad   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al        | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda   | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne     | M      | 2.97 |      007 | 1982-10-24 |  466200 |
+| 107 | Miyuki     | Shirogane | M      | 2.79 |      010 | 1982-12-12 |  496090 |
+| 108 | Harriet    | Sugarc    | F      | 3.98 |      006 | 1990-04-12 |  580800 |
++-----+------------+-----------+--------+------+----------+------------+---------+
+
+
+sexist UPDATE
+UPDATE Mahasiswa Set balance = balance + 2 where gender = 'M' and gpa > 2.7;
++-----+------------+-----------+--------+------+----------+------------+---------+
+| id  | first_name | last_name | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-----------+--------+------+----------+------------+---------+
+|  99 | John       | Doe       | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark     | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Rag       | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus  | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Monstad   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al        | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda   | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne     | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | Sugarc    | F      | 3.98 |      006 | 1990-04-12 |  580800 |
++-----+------------+-----------+--------+------+----------+------------+---------+
+10 rows in set (0.000 sec)
+
+
+------------------------------------------------------------------------------------------------------------
+
+INSERT into mahasiswa(first_name,id,seat_num)
+VALUES 
+('Delete Later',99999,999);
+
+MariaDB [Latihan]> select * from Mahasiswa;
++-------+--------------+-----------+--------+------+----------+------------+---------+
+| id    | first_name   | last_name | gender | gpa  | seat_num | birth_date | balance |
++-------+--------------+-----------+--------+------+----------+------------+---------+
+|    99 | John         | Doe       | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+|   100 | Tony         | Stark     | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+|   101 | Diluc        | Rag       | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+|   102 | Mona         | Megistus  | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+|   103 | Jean         | Monstad   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+|   104 | Wierd        | Al        | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+|   105 | Kwan         | Kansuda   | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+|   106 | Bruce        | Wayne     | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+|   107 | Miyuki       | Shirogane | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+|   108 | Harriet      | Sugarc    | F      | 3.98 |      006 | 1990-04-12 |  580800 |
+| 99999 | Delete Later | NULL      | NULL   | NULL |      999 | NULL       |    NULL |
++-------+--------------+-----------+--------+------+----------+------------+---------+
+11 rows in set (0.000 sec)
+
+MariaDB [Latihan]> delete from mahasiswa where first_name = 'Delete Later';
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [Latihan]> select * from Mahasiswa;
++-----+------------+-----------+--------+------+----------+------------+---------+
+| id  | first_name | last_name | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-----------+--------+------+----------+------------+---------+
+|  99 | John       | Doe       | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark     | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Rag       | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus  | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Monstad   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al        | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda   | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne     | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | Sugarc    | F      | 3.98 |      006 | 1990-04-12 |  580800 |
++-----+------------+-----------+--------+------+----------+------------+---------+
+10 rows in set (0.000 sec)
+
+UPDATE Mahasiswa SET last_name = 'SugarCookie' where first_name = 'Harriet';
+MariaDB [Latihan]> select * from Mahasiswa;
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Rag         | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Monstad     | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+10 rows in set (0.000 sec)
+
+
+
+CREATE TABLE Mahasiswa_copy AS (Select first_name as name,gpa as nilai from Mahasiswa);
+//copy only selected
+CREATE TABLE Mahasiswa_copy(
+
+)AS(
+    SELECT 
+)
+
+Types of copying :
+CREATE TABLE name_copy LIKE name;
+CREATE TABLE name_copy AS (SELECT * FROM name);
+CREATE TABLE name_copy AS (SELECT id,movie AS title FROM name);
+
+INSERT INTO movie_copy(id, name, year, rank)
+SELECT id, name, year, rank FROM movie;
+
+CREATE TABLE name_copy (
+    id CHAR(5) PRIMARY KEY,
+    title VARCHAR(40)
+)AS(
+    SELECT id,name AS title FROM name
+);
+
+
+

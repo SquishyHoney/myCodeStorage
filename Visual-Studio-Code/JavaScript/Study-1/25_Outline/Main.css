@@ -1,0 +1,49 @@
+div{
+    border : 0px solid black;
+    border-radius: 15px;
+
+    margin : 10px;
+    padding: 10px;
+
+    text-align: center;
+}
+
+.container,
+.container2{
+    display: flex;
+    font-family: arial;
+}
+
+.registry{
+    flex-direction: column;
+}
+
+.button_pokemon,
+.Box_Pokemon{
+    background-color: aquamarine;
+}
+
+.button_one,
+.boxOne{
+    background-color: rgb(237, 227, 134);
+}
+
+.button_two,
+.boxTwo{
+    background-color: rgb(150, 245, 150);
+}
+
+
+.button_switch,
+.button_pokemon,
+.button_one,
+.button_two{
+    border:0.5px solid black;
+    border-radius: 15px;
+}
+
+
+.button_switch,
+.box_switch{
+    background-color: indianred;
+}

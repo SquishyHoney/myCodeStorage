@@ -1,0 +1,16 @@
+TYPE=VIEW
+query=select `temp4`.`orders`.`OrderID` AS `OrderID`,`temp4`.`orders`.`OrderDate` AS `OrderDate`,`temp4`.`orders`.`EmployeeID` AS `EmployeeID` from `temp4`.`orders`
+md5=4ce79872b4686a0b1ad9e3e07fb33e9d
+updatable=1
+algorithm=0
+definer_user=root
+definer_host=localhost
+suid=2
+with_check_option=0
+timestamp=0001701758168171255
+create-version=2
+source=select * from orders
+client_cs_name=utf8mb4
+connection_cl_name=utf8mb4_general_ci
+view_body_utf8=select `temp4`.`orders`.`OrderID` AS `OrderID`,`temp4`.`orders`.`OrderDate` AS `OrderDate`,`temp4`.`orders`.`EmployeeID` AS `EmployeeID` from `temp4`.`orders`
+mariadb-version=100428

@@ -1,0 +1,37 @@
+Actors :
+ - Administrators
+ - User
+ - SoftEng
+ - Designers
+
+Users :
+ - New
+ - Sophisticated
+ - parametric
+ - Standalone
+
+Meta, data Decriptive Info of a database (CHAR, INT, FLOAT, DLL)
+Constrict Databse --> Store in medium
+concurrency Cntrl --> So ga tabrakan
+Database Schema   --> Description of database 
+DBMS --> Data, Construct, Manipulation, Sharing
+Advantage :
+ - Control Redundancy
+ - Forbiden access
+ - Provide Storage and backup 
+ - Enforce integrity
+
+Integer Constraint :
+ - Datatype
+ - Key constraint
+ - Referential
+
+SELECT * FROM Mahasiswa WHERE gpa > 10 GROUP BY kelas HAVING kelas COUNT(*) > 10 ORDER BY absen LIMIT 10;
+
+Index : special algoritm to find 
+Buffer Module : ram
+Query Proccess : find storage base on query
+ 
+Table relation
+Row = tuple 
+Colum =  atribute 

@@ -1,0 +1,21 @@
+body{
+    background-color: #333535;
+    color:white;
+    font-family: consolas;
+}
+
+.container{
+    outline: 2.5px solid hotpink;
+    padding: 0.5rem;
+}
+
+.cluster{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.box{
+    border: 2px solid lightblue;
+    background-color: blue;
+}

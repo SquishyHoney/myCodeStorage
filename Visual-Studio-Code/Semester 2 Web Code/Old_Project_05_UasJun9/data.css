@@ -1,0 +1,89 @@
+/*.data-container {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+  }
+ 
+  .left-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .data-container{
+    border: 2px solid #654321;
+    padding:0px;
+    background: rgba(101, 67, 33, 0.6);
+    padding-top: 40px;
+  }
+
+  .right-side{
+    border: 2px solid #654321;
+    padding:0px;
+    background: rgba(101, 67, 33, 0.6);
+  }
+
+  .right-side {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .pahlwan-image {
+    max-width: 200px;
+  }
+  
+  .nama {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .contents {
+    padding: 10px;
+    border: 2px solid #654321;
+    border-radius: 5px;
+  }
+  
+  .history {
+    padding: 10px;
+    border: 2px solid #654321;
+    background: rgba(101, 67, 33, 0.6);
+    border-radius: 5px;
+  }
+  
+  .history h2 {
+    margin-top: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .data-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .left-side,
+    .right-side {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .data-container {
+      display: flex;
+      justify-content:space-evenly;
+      align-items: center;
+
+      width: 2000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .left-side,
+    .right-side {
+      width: auto;
+    }
+  }
+  

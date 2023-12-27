@@ -1,0 +1,81 @@
+SEARCH TREES :
+member
+a2b
+
+Week 4:
+
+Belajar tentang List
+[[],[1,2,3],mia,john]
+[H|T]
+main variable = H with T as next
+
+Example of Head and tails :
+
+?-[A|B] = [1,2,3,4,5].
+A = 1
+B = [2,3,4,5]
+TRUE
+
+?- [A|B] = []
+False
+
+?- [_,B,_,C|T] = [1,2,3,4,5,6].
+B = 2
+C = 4
+"_" = The anonymous variable
+
+member(X,[X|T]).
+member(X,[H|T]):-member(X,T).
+Recursively check if X is in the List
+%can also be written
+isMember(A,[A|_]).
+isMember(A,[_|T]):-isMember(A,T).
+
+Scannning Recursive Example
+Check if both have Apple and Pear Sama
+    checkKeranjang([],[]).
+    checkKeranjang([apple|T1],[pear|T2]):-checkKeranjang(T1,T2).
+
+a2b([],[]).
+a2b([a|Ta],[b|Tb]):-a2b(Ta,Tb).
+
+
+?- ([A,B,C|T]) = [1,2,3,4,5,6].
+A = 1
+B = 2
+C = 3
+T = [1,2,3,4,5,6]
+True
+
+
+From Latihan Slide (1):
+1.False
+TRUE
+False
+TRUE
+5.TRUE ----
+TRUE
+False
+TRUE
+9. True -> Any takes the empty List
+10. False -> Empty list does not mean Any
+11. True -> Any Takes the empty List -----
+
+[a,b,c,d] = [a,b,c,[d]]. d =\= [d]
+[] = [_|[]] False No list Is taken
+
+From Latihan Slide (2):
+1. Yes 4
+Yes 3
+No  Tail dalam bentuk[]
+Yes 4 [1|[2|[3|[4]]]] -> [1|[2|[3,4]]] -> [1|[2,3,4]]
+5. Yes 4
+Yes 0
+No
+Yes 5
+
+
+
+
+
+

@@ -1,0 +1,103 @@
+body {
+    font-family: comic sans ms;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    margin:auto;
+    border: 5px solid lemonchiffon;
+    border-style: dashed;
+    background-image:linear-gradient(to bottom,yellow,white);
+    color: #706538;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .feedback-buttons button {
+    margin-right: 10px;
+    color: red;
+    
+  }
+  
+  .yes{
+    color: black;
+  }
+  
+  .no{
+    color: black;
+  }
+
+  .like-button{
+    background-color: green;
+    border-radius: 20px;
+    width: 70px;
+  }
+
+  .container{
+    margin-top: -190px;
+  }
+
+  .dislike-button{
+    background-color: red;
+    width: 70px;
+    border-radius: 20px;
+  }
+
+  .header {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .joke-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .joke-box {
+    border: 2px solid black;
+    padding: 20px;
+    width: 400px;
+  }
+  
+  .button {
+    background-color: #ffcc00;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .feedback-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .feedback-box {
+    border: 2px solid black;
+    padding: 20px;
+    width: 400px;
+  }
+  
+  .feedback-button {
+    background-color: #009900;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .feedback-count {
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  

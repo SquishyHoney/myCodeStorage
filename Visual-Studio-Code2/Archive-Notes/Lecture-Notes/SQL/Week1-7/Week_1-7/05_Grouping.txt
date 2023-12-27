@@ -1,0 +1,1137 @@
+CREATE TABLE movie(
+    movie_id INT(5),
+    name CHAR(30),
+    money INT(10)
+);
+
+INSERT INTO movie(movie_id,name,money)
+VALUES
+(2,'Miney Mouse',30),
+(1,'Star Wars Ep 1',10),
+(1,'Star Wars Ep 2',30),
+(2,'Mickey Mouse',40),
+(1,'Star Wars Ep 3',20),
+(1,'Star Wars Ep 4',15),
+(3,'Cinderella',5),
+(3,'Moana',20);
+
+
+
+MariaDB [Latihan]> select * from movie
+    -> ;
++----------+----------------+-------+
+| movie_id | name           | money |
++----------+----------------+-------+
+|        2 | Miney Mouse    |    30 |
+|        1 | Star Wars Ep 1 |    10 |
+|        1 | Star Wars Ep 2 |    30 |
+|        2 | Mickey Mouse   |    40 |
+|        1 | Star Wars Ep 3 |    20 |
+|        1 | Star Wars Ep 4 |    15 |
+|        3 | Cinderella     |     5 |
+|        3 | Moana          |    20 |
++----------+----------------+-------+
+8 rows in set (0.000 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+//UNTUK MENCARI total money by movie id kita
+SELECT movie_id AS nomor,sum(money) AS 'total studio' FROM movie GROUP BY movie_id;
++----------+----------------+-------+
+| movie_id | name           | money |
++----------+----------------+-------+
+|        2 | Miney Mouse    |    30 |
+|        1 | Star Wars Ep 1 |    10 |
+|        1 | Star Wars Ep 2 |    30 |
+|        2 | Mickey Mouse   |    40 |
+|        1 | Star Wars Ep 3 |    20 |
+|        1 | Star Wars Ep 4 |    15 |
+|        3 | Cinderella     |     5 |
+|        3 | Moana          |    20 |
++----------+----------------+-------+
+8 rows in set (0.000 sec)
+
+MariaDB [Latihan]> SELECT movie_id as Nomor,sum(money) as 'Total studio money' from movie GROUP BY movie_id;
++-------+--------------------+
+| Nomor | Total studio money |
++-------+--------------------+
+|     1 |                 75 |
+|     2 |                 70 |
+|     3 |                 25 |
++-------+--------------------+
+3 rows in set (0.000 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+MariaDB [Latihan]> SELECT movie_id AS nomor,sum(money) AS 'total studio',name FROM movie GROUP BY movie_id;
++-------+--------------+----------------+
+| nomor | total studio | name           |
++-------+--------------+----------------+
+|     1 |           75 | Star Wars Ep 1 |
+|     2 |           70 | Miney Mouse    |
+|     3 |           25 | Cinderella     |
++-------+--------------+----------------+
+3 rows in set (0.001 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+//untuk ngegroup salary by nomor
+SELECT movie_id, GROUP_CONCAT(money), name FROM movie GROUP BY movie_id;
+
+MariaDB [Latihan]> SELECT movie_id, GROUP_CONCAT(money), name FROM movie GROUP BY movie_id;
++----------+---------------------+----------------+
+| movie_id | GROUP_CONCAT(money) | name           |
++----------+---------------------+----------------+
+|        1 | 10,30,20,15         | Star Wars Ep 1 |
+|        2 | 30,40               | Miney Mouse    |
+|        3 | 5,20                | Cinderella     |
++----------+---------------------+----------------+
+3 rows in set (0.001 sec)
+
+
+
+
+//
+
+MariaDB [Latihan]> select * from Movie;
++----------+----------------+-------+
+| movie_id | name           | money |
++----------+----------------+-------+
+|        2 | Miney Mouse    |    30 |
+|        1 | Star Wars Ep 1 |    10 |
+|        1 | Star Wars Ep 2 |    30 |
+|        2 | Mickey Mouse   |    40 |
+|        1 | Star Wars Ep 3 |    20 |
+|        1 | Star Wars Ep 4 |    15 |
+|        3 | Cinderella     |     5 |
+|        3 | Moana          |    20 |
++----------+----------------+-------+
+8 rows in set (0.000 sec)
+
+MariaDB [Latihan]> select group_concat(name) AS Movies,sum(money) AS 'Total Money Made',movie_id as 'Studio Number' from Movie GROUP BY movie_id;
++-------------------------------------------------------------+------------------+---------------+
+| Movies                                                      | Total Money Made | Studio Number |
++-------------------------------------------------------------+------------------+---------------+
+| Star Wars Ep 1,Star Wars Ep 2,Star Wars Ep 3,Star Wars Ep 4 |               75 |             1 |
+| Miney Mouse,Mickey Mouse                                    |               70 |             2 |
+| Cinderella,Moana                                            |               25 |             3 |
++-------------------------------------------------------------+------------------+---------------+
+3 rows in set (0.001 sec)
+
+
+
+//SELECT * FROM mahasiswa;
+MariaDB [Latihan]> select * from mahasiswa;
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Rag         | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Monstad     | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+10 rows in set (0.001 sec)
+
+//SORT by birth_date
+MariaDB [Latihan]> select * from mahasiswa group by year(birth_date);
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 101 | Diluc      | Rag         | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 103 | Jean       | Monstad     | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+9 rows in set (0.001 sec)
+
+
+//Mahasiswa table 
+//Sort by year
+//Format :
+//100 , Mona Megistus, F, gpa ,year
+SELECT id as 'ID Number', concat(first_name,' ',last_name) as 'Full Name',gender, year(birth_date)
+FROM Mahasiswa
+GROUP BY year(birth_date);
+
+MariaDB [Latihan]> SELECT id as 'ID Number', concat(first_name,' ',last_name) as 'Full Name',gender, year(birth_date)
+    -> FROM Mahasiswa
+    -> GROUP BY year(birth_date);
++-----------+---------------------+--------+------------------+
+| ID Number | Full Name           | gender | year(birth_date) |
++-----------+---------------------+--------+------------------+
+|       102 | Mona Megistus       | F      |             1972 |
+|       101 | Diluc Rag           | M      |             1979 |
+|       106 | Bruce Wayne         | M      |             1982 |
+|       100 | Tony Stark          | M      |             1985 |
+|       108 | Harriet SugarCookie | F      |             1990 |
+|        99 | John Doe            | M      |             1992 |
+|       103 | Jean Monstad        | F      |             1993 |
+|       104 | Wierd Al            | M      |             1999 |
+|       105 | Kwan Kansuda        | F      |             2006 |
++-----------+---------------------+--------+------------------+
+9 rows in set (0.001 sec)
+
+
+//SORT by id
+//Only above rata gpa
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 101 | Diluc      | Rag         | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 103 | Jean       | Monstad     | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+SELECT id,concat(first_name,' ',last_name) as 'Full Name',gender,gpa AS nilai
+FROM Mahasiswa
+WHERE gpa > (SELECT AVG(gpa) from Mahasiswa)
+GROUP BY id;
+
+Remember SQL podmas
+SELECT
+FROM
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+
+SELECT id,concat(first_name,' ',last_name) as 'Full Name',gender,gpa AS nilai, avg(gpa) as Rata
+FROM Mahasiswa
+WHERE gpa > (SELECT AVG(gpa) from Mahasiswa)
+GROUP BY id;
+
+MariaDB [Latihan]> SELECT id,concat(first_name,' ',last_name) as 'Full Name',gender,gpa AS nilai, avg(gpa) as Rata
+    -> FROM Mahasiswa
+    -> WHERE gpa > (SELECT AVG(gpa) from Mahasiswa)
+    -> GROUP BY id;
++-----+---------------------+--------+-------+----------+
+| id  | Full Name           | gender | nilai | Rata     |
++-----+---------------------+--------+-------+----------+
+| 100 | Tony Stark          | M      |  3.15 | 3.150000 |
+| 101 | Diluc Rag           | M      |  3.99 | 3.990000 |
+| 102 | Mona Megistus       | F      |  3.48 | 3.480000 |
+| 103 | Jean Monstad        | F      |  3.52 | 3.520000 |
+| 106 | Bruce Wayne         | M      |  2.97 | 2.970000 |
+| 108 | Harriet SugarCookie | F      |  3.98 | 3.980000 |
++-----+---------------------+--------+-------+----------+
+6 rows in set (0.000 sec)
+
+
+//Select total Birth year each name
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 101 | Diluc      | Rag         | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 103 | Jean       | Monstad     | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+SELECT concat(first_name,' ',last_name) AS 'Full Name',year(birth_date),month(birth_date)
+FROM mahasiswa
+GROUP BY year(birth_date);
++---------------------+------------------+-------------------+
+| Full Name           | year(birth_date) | month(birth_date) |
++---------------------+------------------+-------------------+
+| Mona Megistus       |             1972 |                 7 |
+| Diluc Rag           |             1979 |                10 |
+| Bruce Wayne         |             1982 |                10 |
+| Tony Stark          |             1985 |                 6 |
+| Harriet SugarCookie |             1990 |                 4 |
+| John Doe            |             1992 |                 7 |
+| Jean Monstad        |             1993 |                 5 |
+| Wierd Al            |             1999 |                 3 |
+| Kwan Kansuda        |             2006 |                 2 |
++---------------------+------------------+-------------------+
+9 rows in set (0.000 sec)
+
+update jean into real full name
+update diluc into real full name
+
+UPDATE Mahasiswa
+SET last_name = 'Ragnvindr'
+WHERE first_name = 'Diluc';
+
+UPDATE Mahasiswa
+SET last_name = 'Gunnhildr'
+WHERE first_name = 'Jean';
+
+MariaDB [Latihan]> UPDATE Mahasiswa
+    -> SET last_name = 'Ragnvindr'
+    -> WHERE first_name = 'Diluc';
+Query OK, 1 row affected (0.002 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Latihan]> UPDATE Mahasiswa
+    -> SET last_name = 'Gunnhildr'
+    -> WHERE first_name = 'Jean';
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Latihan]> SELECT * FROM Mahasiswa;
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Ragnvindr   | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Gunnhildr   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+10 rows in set (0.000 sec)
+
+
+//Show All gender
+SELECT GROUP_CONCAT(first_name) AS 'Name(s)',gender,count(gender) as Total
+FROM Mahasiswa
+GROUP BY gender;
+
+MariaDB [Latihan]> SELECT GROUP_CONCAT(first_name) AS 'Name(s)',gender,count(gender) as Total
+    -> FROM Mahasiswa
+    -> GROUP BY gender;
++------------------------------------+--------+-------+
+| Name(s)                            | gender | Total |
++------------------------------------+--------+-------+
+| Harriet,Mona,Jean,Kwan             | F      |     4 |
+| Miyuki,Bruce,Wierd,Diluc,Tony,John | M      |     6 |
++------------------------------------+--------+-------+
+2 rows in set (0.001 sec)
+
+
+//Show total gender in that year
+SELECT gender,year(birth_date),count(*) AS total
+FROM Mahasiswa
+GROUP BY year(birth_date);
+
+MariaDB [Latihan]> SELECT gender,year(birth_date),count(*) AS total
+    -> FROM Mahasiswa
+    -> GROUP BY year(birth_date);
++--------+------------------+-------+
+| gender | year(birth_date) | total |
++--------+------------------+-------+
+| F      |             1972 |     1 |
+| M      |             1979 |     1 |
+| M      |             1982 |     2 |
+| M      |             1985 |     1 |
+| F      |             1990 |     1 |
+| M      |             1992 |     1 |
+| F      |             1993 |     1 |
+| M      |             1999 |     1 |
+| F      |             2006 |     1 |
++--------+------------------+-------+
+
+SELECT gender,year(birth_date),count(*) AS total
+FROM Mahasiswa
+GROUP BY gender,year(birth_date);
+MariaDB [Latihan]> SELECT gender,year(birth_date),count(*) AS total
+    -> FROM Mahasiswa
+    -> GROUP BY gender,year(birth_date);
++--------+------------------+-------+
+| gender | year(birth_date) | total |
++--------+------------------+-------+
+| F      |             1972 |     1 |
+| F      |             1990 |     1 |
+| F      |             1993 |     1 |
+| F      |             2006 |     1 |
+| M      |             1979 |     1 |
+| M      |             1982 |     2 |
+| M      |             1985 |     1 |
+| M      |             1992 |     1 |
+| M      |             1999 |     1 |
++--------+------------------+-------+
+9 rows in set (0.001 sec)
+
+
+//WITH ROLLUP (NULLS)
+more reinforcements
+INSERT INTO Mahasiswa (id, first_name, last_name, gpa, seat_num, birth_date, balance)
+VALUES
+//No balance
+INSERT INTO Mahasiswa (id, first_name, last_name, gpa, seat_num, birth_date)
+VALUES
+    (201, 'Jean', 'Gunnhildr',       3.75, 101, '1995-05-15'),
+    (202, 'Amber', 'Eberhart',       3.85, 102, '1996-02-20');
+INSERT INTO Mahasiswa (id, first_name, last_name, gpa, seat_num, birth_date, balance)
+VALUES
+    (203, 'Julia', 'Lea',      1.60, 103, '2006-08-10', 580000);
+
+//No gpa
+INSERT INTO Mahasiswa (id, first_name, last_name, seat_num, birth_date, balance)
+VALUES
+    (205, 'Kaedehara', 'Kazuha',      105, '1995-09-30', 490000),
+    (206, 'Yanfei', 'Meng',           106, '1998-04-05', 600000);
+INSERT INTO Mahasiswa (id, first_name, last_name, gpa, seat_num, birth_date, balance)
+VALUES   
+    (204, 'Ayumi', 'Shinoda',        3.95, 104, '1980-11-25', 540000);
+//no birth_date
+INSERT INTO Mahasiswa (id, first_name, last_name, gpa, seat_num, balance)
+VALUES
+    (208, 'Eula', 'Lawrence',        4.00, 108, 570000),
+    (209, 'Childe', 'Tartaglia',     3.90, 109, 480000);
+INSERT INTO Mahasiswa (id, first_name, last_name, gpa, seat_num, birth_date, balance)
+VALUES
+    (207, 'Albedo', 'Kreideprinz',   3.55, 107, '1993-12-15', 450000),
+    (210, 'Qiqi', 'Chi',             3.65, 110, '1994-06-28', 420000);
+
+//Result
+SELECT * FROM Mahasiswa;
+MariaDB [Latihan]> SELECT * FROM Mahasiswa;
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Ragnvindr   | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Gunnhildr   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
+| 201 | Jean       | Gunnhildr   | NULL   | 3.75 |      101 | 1995-05-15 |    NULL |
+| 202 | Amber      | Eberhart    | NULL   | 3.85 |      102 | 1996-02-20 |    NULL |
+| 203 | Julia      | Lea         | NULL   | 1.60 |      103 | 2006-08-10 |  580000 |
+| 204 | Ayumi      | Shinoda     | NULL   | 3.95 |      104 | 1980-11-25 |  540000 |
+| 205 | Kaedehara  | Kazuha      | NULL   | NULL |      105 | 1995-09-30 |  490000 |
+| 206 | Yanfei     | Meng        | NULL   | NULL |      106 | 1998-04-05 |  600000 |
+| 207 | Albedo     | Kreideprinz | NULL   | 3.55 |      107 | 1993-12-15 |  450000 |
+| 208 | Eula       | Lawrence    | NULL   | 4.00 |      108 | NULL       |  570000 |
+| 209 | Childe     | Tartaglia   | NULL   | 3.90 |      109 | NULL       |  480000 |
+| 210 | Qiqi       | Chi         | NULL   | 3.65 |      110 | 1994-06-28 |  420000 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+20 rows in set (0.000 sec)
+
+Wrong :
+    1. Jean is Double (Change to ...)
+    2. No gender On 201-210
+
+Female (F):
+Id = 202,203,204,206,208,209
+Male (M):
+Id = 209,201
+Make 205,207,208,210 NULL gender 
+
+
++-----+------------+--------+
+| id  | first_name | gender |
++-----+------------+--------+
+|  99 | John       | F      |
+| 100 | Tony       | F      |
+| 101 | Diluc      | F      |
+| 102 | Mona       | F      |
+| 103 | Jean       | F      |
+| 104 | Wierd      | F      |
+| 105 | Kwan       | F      |
+| 106 | Bruce      | F      |
+| 107 | Miyuki     | F      |
+| 108 | Harriet    | F      |
+| 201 | Jean       | F      |
+| 202 | Amber      | F      |
+| 203 | Julia      | F      |
+| 204 | Ayumi      | F      |
+| 205 | Kaedehara  | F      |
+| 206 | Yanfei     | F      |
+| 207 | Albedo     | F      |
+| 208 | Eula       | F      |
+| 209 | Childe     | F      |
+| 210 | Qiqi       | F      |
++-----+------------+--------+
+UPDATE Mahasiswa
+SET gender = 'M'
+WHERE id IN (99, 100, 101, 104, 106, 107, 205, 207, 209);
+
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Ragnvindr   | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Gunnhildr   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
+| 201 | Jean       | Gunnhildr   | F      | 3.75 |      101 | 1995-05-15 |    NULL |
+| 202 | Amber      | Eberhart    | F      | 3.85 |      102 | 1996-02-20 |    NULL |
+| 203 | Julia      | Lea         | F      | 1.60 |      103 | 2006-08-10 |  580000 |
+| 204 | Ayumi      | Shinoda     | F      | 3.95 |      104 | 1980-11-25 |  540000 |
+| 205 | Kaedehara  | Kazuha      | M      | NULL |      105 | 1995-09-30 |  490000 |
+| 206 | Yanfei     | Meng        | F      | NULL |      106 | 1998-04-05 |  600000 |
+| 207 | Albedo     | Kreideprinz | M      | 3.55 |      107 | 1993-12-15 |  450000 |
+| 208 | Eula       | Lawrence    | F      | 4.00 |      108 | NULL       |  570000 |
+| 209 | Childe     | Tartaglia   | M      | 3.90 |      109 | NULL       |  480000 |
+| 210 | Qiqi       | Chi         | F      | 3.65 |      110 | 1994-06-28 |  420000 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+
+Change albedo to Null
+MariaDB [Latihan]> UPDATE Mahasiswa
+    -> SET gender = NULL
+    -> WHERE first_name LIKE 'Albedo';
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Latihan]> SELECT * FROM Mahasiswa;
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Ragnvindr   | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Gunnhildr   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
+| 201 | Jean       | Gunnhildr   | F      | 3.75 |      101 | 1995-05-15 |    NULL |
+| 202 | Amber      | Eberhart    | F      | 3.85 |      102 | 1996-02-20 |    NULL |
+| 203 | Julia      | Lea         | F      | 1.60 |      103 | 2006-08-10 |  580000 |
+| 204 | Ayumi      | Shinoda     | F      | 3.95 |      104 | 1980-11-25 |  540000 |
+| 205 | Kaedehara  | Kazuha      | M      | NULL |      105 | 1995-09-30 |  490000 |
+| 206 | Yanfei     | Meng        | F      | NULL |      106 | 1998-04-05 |  600000 |
+| 207 | Albedo     | Kreideprinz | NULL   | 3.55 |      107 | 1993-12-15 |  450000 |
+| 208 | Eula       | Lawrence    | F      | 4.00 |      108 | NULL       |  570000 |
+| 209 | Childe     | Tartaglia   | M      | 3.90 |      109 | NULL       |  480000 |
+| 210 | Qiqi       | Chi         | F      | 3.65 |      110 | 1994-06-28 |  420000 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+20 rows in set (0.000 sec)
+Change 201 to Secret Agent 
+
+UPDATE Mahasiswa
+SET first_name = 'Secret', last_name = 'Agent', gender = NULL
+WHERE id = 201;
+
+MariaDB [Latihan]> UPDATE Mahasiswa
+    -> SET first_name = 'Secret', last_name = 'Agent', gender = NULL
+    -> WHERE id = 201;
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Latihan]> SELECT * FROM MAHASISWa;
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Ragnvindr   | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Gunnhildr   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
+| 201 | Secret     | Agent       | NULL   | 3.75 |      101 | 1995-05-15 |    NULL |
+| 202 | Amber      | Eberhart    | F      | 3.85 |      102 | 1996-02-20 |    NULL |
+| 203 | Julia      | Lea         | F      | 1.60 |      103 | 2006-08-10 |  580000 |
+| 204 | Ayumi      | Shinoda     | F      | 3.95 |      104 | 1980-11-25 |  540000 |
+| 205 | Kaedehara  | Kazuha      | M      | NULL |      105 | 1995-09-30 |  490000 |
+| 206 | Yanfei     | Meng        | F      | NULL |      106 | 1998-04-05 |  600000 |
+| 207 | Albedo     | Kreideprinz | NULL   | 3.55 |      107 | 1993-12-15 |  450000 |
+| 208 | Eula       | Lawrence    | F      | 4.00 |      108 | NULL       |  570000 |
+| 209 | Childe     | Tartaglia   | M      | 3.90 |      109 | NULL       |  480000 |
+| 210 | Qiqi       | Chi         | F      | 3.65 |      110 | 1994-06-28 |  420000 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+20 rows in set (0.000 sec)
+ROLL UP : Use to display NULL at the end
+Example : Sorting Gender and birth_date 
+Will Show
+    F       2001
+    F       2001
+    M       2001
+    NULL    2001
+    F       2000
+    F       2000
+    M       NULL
+
+SELECT id,concat(first_name,' ',last_name) AS 'Full Name',gender,gpa,year(birth_date) 
+FROM Mahasiswa
+GROUP BY gender,year(birth_date) WITH ROLLUP;
+
+SELECT * FORM Mahasiswa
+GROUP BY year(birth_date) WITH ROLLUP;
+
+SELECT gender, YEAR(birth_date), COUNT(*)
+FROM Mahasiswa
+GROUP BY gender, YEAR(birth_date) WITH ROLLUP;
+
+MariaDB [Latihan]> SELECT first_name,year(birth_date),count(*) FROM Mahasiswa GROUP BY year(birth_date);
++------------+------------------+----------+
+| first_name | year(birth_date) | count(*) |
++------------+------------------+----------+
+| Eula       |             NULL |        2 |
+| Mona       |             1972 |        1 |
+| Diluc      |             1979 |        1 |
+| Ayumi      |             1980 |        1 |
+| Bruce      |             1982 |        2 |
+| Tony       |             1985 |        1 |
+| Harriet    |             1990 |        1 |
+| John       |             1992 |        1 |
+| Jean       |             1993 |        2 |
+| Qiqi       |             1994 |        1 |
+| Secret     |             1995 |        2 |
+| Amber      |             1996 |        1 |
+| Yanfei     |             1998 |        1 |
+| Wierd      |             1999 |        1 |
+| Kwan       |             2006 |        2 |
++------------+------------------+----------+
+15 rows in set (0.000 sec)
+
+MariaDB [Latihan]>
+
+
+------------------------------ HAVING CLAUSES ----------------------------------
+MariaDB [Latihan]> SELECT * FROM movie;
++----------+----------------+-------+
+| movie_id | name           | money |
++----------+----------------+-------+
+|        2 | Miney Mouse    |    30 |
+|        1 | Star Wars Ep 1 |    10 |
+|        1 | Star Wars Ep 2 |    30 |
+|        2 | Mickey Mouse   |    40 |
+|        1 | Star Wars Ep 3 |    20 |
+|        1 | Star Wars Ep 4 |    15 |
+|        3 | Cinderella     |     5 |
+|        3 | Moana          |    20 |
++----------+----------------+-------+
+
+//movie_id where money made is > 60;
+
+SELECT movie_id AS Studio, GROUP_CONCAT(name) as 'Name(s)', SUM(money)
+FROM Movie   
+GROUP BY movie_id
+HAVING SUM(money) > 60;
+
+-----------------------------------------------------------------------------------
+MariaDB [Latihan]> SELECT movie_id AS Studio, GROUP_CONCAT(name) as 'Name(s)', SUM(money)
+    -> FROM Movie
+    -> GROUP BY movie_id
+    -> HAVING SUM(money) > 0;
++--------+-------------------------------------------------------------+------------+
+| Studio | Name(s)                                                     | SUM(money) |
++--------+-------------------------------------------------------------+------------+
+|      1 | Star Wars Ep 1,Star Wars Ep 2,Star Wars Ep 3,Star Wars Ep 4 |         75 |
+|      2 | Miney Mouse,Mickey Mouse                                    |         70 |
+|      3 | Cinderella,Moana                                            |         25 |
++--------+-------------------------------------------------------------+------------+
+3 rows in set (0.000 sec)
+
+MariaDB [Latihan]> SELECT movie_id AS Studio, GROUP_CONCAT(name) as 'Name(s)', SUM(money)
+    -> FROM Movie
+    -> GROUP BY movie_id
+    -> HAVING SUM(money) > 60;
++--------+-------------------------------------------------------------+------------+
+| Studio | Name(s)                                                     | SUM(money) |
++--------+-------------------------------------------------------------+------------+
+|      1 | Star Wars Ep 1,Star Wars Ep 2,Star Wars Ep 3,Star Wars Ep 4 |         75 |
+|      2 | Miney Mouse,Mickey Mouse                                    |         70 |
++--------+-------------------------------------------------------------+------------+
+2 rows in set (0.000 sec)
+
+
+SELECT movie_id AS Studio, GROUP_CONCAT(name) as 'Name(s)', SUM(money) FROM Movie WHERE sum(money) > 60;
+
+Show gpa above average from mahasiswa;
+SELECT concat(first_name,' ',last_name),gpa FROM Mahasiswa
+WHERE gpa > (SELECT AVG(gpa) FROM Mahasiswa)
+GROUP BY first_name;
++----------------------------------+------+
+| concat(first_name,' ',last_name) | gpa  |
++----------------------------------+------+
+| Albedo Kreideprinz               | 3.55 |
+| Amber Eberhart                   | 3.85 |
+| Ayumi Shinoda                    | 3.95 |
+| Childe Tartaglia                 | 3.90 |
+| Diluc Ragnvindr                  | 3.99 |
+| Eula Lawrence                    | 4.00 |
+| Harriet SugarCookie              | 3.98 |
+| Jean Gunnhildr                   | 3.52 |
+| Mona Megistus                    | 3.48 |
+| Qiqi Chi                         | 3.65 |
+| Secret Agent                     | 3.75 |
++----------------------------------+------+
+11 rows in set (0.001 sec)
+
+
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Ragnvindr   | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Gunnhildr   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
+| 201 | Secret     | Agent       | NULL   | 3.75 |      101 | 1995-05-15 |    NULL |
+| 202 | Amber      | Eberhart    | F      | 3.85 |      102 | 1996-02-20 |    NULL |
+| 203 | Julia      | Lea         | F      | 1.60 |      103 | 2006-08-10 |  580000 |
+| 204 | Ayumi      | Shinoda     | F      | 3.95 |      104 | 1980-11-25 |  540000 |
+| 205 | Kaedehara  | Kazuha      | M      | NULL |      105 | 1995-09-30 |  490000 |
+| 206 | Yanfei     | Meng        | F      | NULL |      106 | 1998-04-05 |  600000 |
+| 207 | Albedo     | Kreideprinz | NULL   | 3.55 |      107 | 1993-12-15 |  450000 |
+| 208 | Eula       | Lawrence    | F      | 4.00 |      108 | NULL       |  570000 |
+| 209 | Childe     | Tartaglia   | M      | 3.90 |      109 | NULL       |  480000 |
+| 210 | Qiqi       | Chi         | F      | 3.65 |      110 | 1994-06-28 |  420000 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+20 rows in set (0.001 sec)
+
+showing all names by initials
+SELECT LEFT(first_name,1) as 'Huruf Depan',GROUP_CONCAT(CONCAT(first_name,' ',last_name)), count(*)
+FROM Mahasiswa
+GROUP BY LEFT(first_name,1);
+
++-------------+-------------------------------------------------+----------+
+| Huruf Depan | GROUP_CONCAT(CONCAT(first_name,' ',last_name))  | count(*) |
++-------------+-------------------------------------------------+----------+
+| A           | Ayumi Shinoda,Amber Eberhart,Albedo Kreideprinz |        3 |
+| B           | Bruce Wayne                                     |        1 |
+| C           | Childe Tartaglia                                |        1 |
+| D           | Diluc Ragnvindr                                 |        1 |
+| E           | Eula Lawrence                                   |        1 |
+| H           | Harriet SugarCookie                             |        1 |
+| J           | Julia Lea,John Doe,Jean Gunnhildr               |        3 |
+| K           | Kwan Kansuda,Kaedehara Kazuha                   |        2 |
+| M           | Miyuki Shirogane,Mona Megistus                  |        2 |
+| Q           | Qiqi Chi                                        |        1 |
+| S           | Secret Agent                                    |        1 |
+| T           | Tony Stark                                      |        1 |
+| W           | Wierd Al                                        |        1 |
+| Y           | Yanfei Meng                                     |        1 |
++-------------+-------------------------------------------------+----------+
+
+yang lebih dari 
+SELECT GROUP_CONCAT(first_name), count(*) as Total 
+FROM Mahasiswa 
+GROUP BY left(first_name,1)
+HAVING count(*) > 1;
+
+MariaDB [Latihan]> SELECT GROUP_CONCAT(first_name), count(*) as Total
+    -> FROM Mahasiswa
+    -> GROUP BY left(first_name,1)
+    -> HAVING count(*) > 1;
++--------------------------+-------+
+| GROUP_CONCAT(first_name) | Total |
++--------------------------+-------+
+| Ayumi,Amber,Albedo       |     3 |
+| Julia,John,Jean          |     3 |
+| Kwan,Kaedehara           |     2 |
+| Miyuki,Mona              |     2 |
++--------------------------+-------+
+4 rows in set (0.001 sec)
+
+ORDER BY 
+
+SELECT * FROM Mahasiswa
+ORDER BY id;
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Ragnvindr   | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Gunnhildr   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
+| 201 | Secret     | Agent       | NULL   | 3.75 |      101 | 1995-05-15 |    NULL |
+| 202 | Amber      | Eberhart    | F      | 3.85 |      102 | 1996-02-20 |    NULL |
+| 203 | Julia      | Lea         | F      | 1.60 |      103 | 2006-08-10 |  580000 |
+| 204 | Ayumi      | Shinoda     | F      | 3.95 |      104 | 1980-11-25 |  540000 |
+| 205 | Kaedehara  | Kazuha      | M      | NULL |      105 | 1995-09-30 |  490000 |
+| 206 | Yanfei     | Meng        | F      | NULL |      106 | 1998-04-05 |  600000 |
+| 207 | Albedo     | Kreideprinz | NULL   | 3.55 |      107 | 1993-12-15 |  450000 |
+| 208 | Eula       | Lawrence    | F      | 4.00 |      108 | NULL       |  570000 |
+| 209 | Childe     | Tartaglia   | M      | 3.90 |      109 | NULL       |  480000 |
+| 210 | Qiqi       | Chi         | F      | 3.65 |      110 | 1994-06-28 |  420000 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+
+SELECT * FROM Mahasiswa 
+ORDER BY first_name;
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+| 207 | Albedo     | Kreideprinz | NULL   | 3.55 |      107 | 1993-12-15 |  450000 |
+| 202 | Amber      | Eberhart    | F      | 3.85 |      102 | 1996-02-20 |    NULL |
+| 204 | Ayumi      | Shinoda     | F      | 3.95 |      104 | 1980-11-25 |  540000 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 209 | Childe     | Tartaglia   | M      | 3.90 |      109 | NULL       |  480000 |
+| 101 | Diluc      | Ragnvindr   | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 208 | Eula       | Lawrence    | F      | 4.00 |      108 | NULL       |  570000 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
+| 103 | Jean       | Gunnhildr   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 203 | Julia      | Lea         | F      | 1.60 |      103 | 2006-08-10 |  580000 |
+| 205 | Kaedehara  | Kazuha      | M      | NULL |      105 | 1995-09-30 |  490000 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 210 | Qiqi       | Chi         | F      | 3.65 |      110 | 1994-06-28 |  420000 |
+| 201 | Secret     | Agent       | NULL   | 3.75 |      101 | 1995-05-15 |    NULL |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 206 | Yanfei     | Meng        | F      | NULL |      106 | 1998-04-05 |  600000 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+
+
+//yang second 
+SELECT * FROM MAHASISWA
+ORDER BY 2;
+//number itu nama columd
+
+//inserting second albedo
+INSERT INTO Mahasiswa(id,first_name,last_name,gender,gpa,seat_num,balance)
+VALUES
+(109,'Akedo','Kaka','M',1.23,111,487020);
+
+DESC =  mulai dari besar
+ASC = mulai dari kecil
+Contoh mulai dari year date terbesar (muda) dan 1-2-3(id asc)
+
+SELECT * FROM Mahasiswa ORDER BY 
+year(birth_date) DESC, id ASC ;
+
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 203 | Julia      | Lea         | F      | 1.60 |      103 | 2006-08-10 |  580000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 206 | Yanfei     | Meng        | F      | NULL |      106 | 1998-04-05 |  600000 |
+| 202 | Amber      | Eberhart    | F      | 3.85 |      102 | 1996-02-20 |    NULL |
+| 201 | Secret     | Agent       | NULL   | 3.75 |      101 | 1995-05-15 |    NULL |
+| 205 | Kaedehara  | Kazuha      | M      | NULL |      105 | 1995-09-30 |  490000 |
+| 210 | Qiqi       | Chi         | F      | 3.65 |      110 | 1994-06-28 |  420000 |
+| 103 | Jean       | Gunnhildr   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 207 | Albedo     | Kreideprinz | NULL   | 3.55 |      107 | 1993-12-15 |  450000 |
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 204 | Ayumi      | Shinoda     | F      | 3.95 |      104 | 1980-11-25 |  540000 |
+| 101 | Diluc      | Ragnvindr   | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 109 | Akedo      | Kaka        | M      | 1.23 |      111 | NULL       |  487020 |
+| 208 | Eula       | Lawrence    | F      | 4.00 |      108 | NULL       |  570000 |
+| 209 | Childe     | Tartaglia   | M      | 3.90 |      109 | NULL       |  480000 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+21 rows in set (0.000 sec)
+
+Mencari 5 termuda (DESCENDING)
+SELECT * FROM Mahasiswa
+WHERE year(birth_date) IS NOT NULL
+ORDER BY year(birth_date) DESC
+LIMIT 5;
+
+Mencari top 5 student (DESCENDING)
+SELECT * FROM Mahasiswa
+WHERE gpa > (SELECT AVG(gpa) FROM Mahasiswa)
+ORDER BY gpa DESC
+LIMIT 5;
+
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+| 208 | Eula       | Lawrence    | F      | 4.00 |      108 | NULL       |  570000 |
+| 101 | Diluc      | Ragnvindr   | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
+| 204 | Ayumi      | Shinoda     | F      | 3.95 |      104 | 1980-11-25 |  540000 |
+| 209 | Childe     | Tartaglia   | M      | 3.90 |      109 | NULL       |  480000 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+
+SELECT * FROM Mahasiswa
+WHERE gpa > (SELECT AVG(gpa) FROM Mahasiswa)
+ORDER BY gpa ASC;
+
+MENCARI 5 termiskin dan gpa atas rata2 
+SELECT * FROM Mahasiswa
+WHERE gpa > (SELECT avg(gpa) FROM Mahasiswa) AND balance IS NOT NULL
+ORDER BY balance ASC;
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+| 101 | Diluc      | Ragnvindr   | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 210 | Qiqi       | Chi         | F      | 3.65 |      110 | 1994-06-28 |  420000 |
+| 103 | Jean       | Gunnhildr   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 207 | Albedo     | Kreideprinz | NULL   | 3.55 |      107 | 1993-12-15 |  450000 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 209 | Childe     | Tartaglia   | M      | 3.90 |      109 | NULL       |  480000 |
+| 204 | Ayumi      | Shinoda     | F      | 3.95 |      104 | 1980-11-25 |  540000 |
+| 208 | Eula       | Lawrence    | F      | 4.00 |      108 | NULL       |  570000 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+10 rows in set (0.000 sec)
+
+
+//memilih tiap 3 di sort 
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Ragnvindr   | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Gunnhildr   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
+| 109 | Akedo      | Kaka        | M      | 1.23 |      111 | NULL       |  487020 |
+| 201 | Secret     | Agent       | NULL   | 3.75 |      101 | 1995-05-15 |    NULL |
+| 202 | Amber      | Eberhart    | F      | 3.85 |      102 | 1996-02-20 |    NULL |
+| 203 | Julia      | Lea         | F      | 1.60 |      103 | 2006-08-10 |  580000 |
+| 204 | Ayumi      | Shinoda     | F      | 3.95 |      104 | 1980-11-25 |  540000 |
+| 205 | Kaedehara  | Kazuha      | M      | NULL |      105 | 1995-09-30 |  490000 |
+| 206 | Yanfei     | Meng        | F      | NULL |      106 | 1998-04-05 |  600000 |
+| 207 | Albedo     | Kreideprinz | NULL   | 3.55 |      107 | 1993-12-15 |  450000 |
+| 208 | Eula       | Lawrence    | F      | 4.00 |      108 | NULL       |  570000 |
+| 209 | Childe     | Tartaglia   | M      | 3.90 |      109 | NULL       |  480000 |
+| 210 | Qiqi       | Chi         | F      | 3.65 |      110 | 1994-06-28 |  420000 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+//sort by Id ascending
+SELECT * FROM Mahasiswa 
+ORDER BY id ASC 
+LIMIT 20 OFFSET 3;
+
+
+membuat data dimana dia cowo atau cewe
+SELECT concat(first_name,' ',last_name) AS 'Full Name',
+    CASE gender
+        WHEN 'M' Then 'COWO'
+        WHEN 'F' Then 'CEWE'
+        ELSE 'No Gender' 
+    END 
+    AS 'Jenis Kelamin'
+FROM Mahasiswa;
++---------------------+---------------+
+| Full Name           | Jenis Kelamin |
++---------------------+---------------+
+| John Doe            | COWO          |
+| Tony Stark          | COWO          |
+| Diluc Ragnvindr     | COWO          |
+| Mona Megistus       | CEWE          |
+| Jean Gunnhildr      | CEWE          |
+| Wierd Al            | COWO          |
+| Kwan Kansuda        | CEWE          |
+| Bruce Wayne         | COWO          |
+| Miyuki Shirogane    | COWO          |
+| Harriet SugarCookie | CEWE          |
+| Akedo Kaka          | COWO          |
+| Secret Agent        | No Gender     |
+| Amber Eberhart      | CEWE          |
+| Julia Lea           | CEWE          |
+| Ayumi Shinoda       | CEWE          |
+| Kaedehara Kazuha    | COWO          |
+| Yanfei Meng         | CEWE          |
+| Albedo Kreideprinz  | No Gender     |
+| Eula Lawrence       | CEWE          |
+| Childe Tartaglia    | COWO          |
+| Qiqi Chi            | CEWE          |
++---------------------+---------------+
+
+
+
+SELECT concat(first_name,' ',last_name) AS 'Full Name',
+    CASE gender
+        WHEN 'M' Then 'COWO'
+        WHEN 'F' Then 'CEWE'
+    END 
+    AS 'Jenis Kelamin'
+FROM Mahasiswa;
++---------------------+---------------+
+| Full Name           | Jenis Kelamin |
++---------------------+---------------+
+| John Doe            | COWO          |
+| Tony Stark          | COWO          |
+| Diluc Ragnvindr     | COWO          |
+| Mona Megistus       | CEWE          |
+| Jean Gunnhildr      | CEWE          |
+| Wierd Al            | COWO          |
+| Kwan Kansuda        | CEWE          |
+| Bruce Wayne         | COWO          |
+| Miyuki Shirogane    | COWO          |
+| Harriet SugarCookie | CEWE          |
+| Akedo Kaka          | COWO          |
+| Secret Agent        | NULL          |
+| Amber Eberhart      | CEWE          |
+| Julia Lea           | CEWE          |
+| Ayumi Shinoda       | CEWE          |
+| Kaedehara Kazuha    | COWO          |
+| Yanfei Meng         | CEWE          |
+| Albedo Kreideprinz  | NULL          |
+| Eula Lawrence       | CEWE          |
+| Childe Tartaglia    | COWO          |
+| Qiqi Chi            | CEWE          |
++---------------------+---------------+
+21 rows in set (0.000 sec)
+
+SELECting above avg,base line, stupid
+MariaDB [Latihan]> SELECT * FROM MAHASISWA;
++-----+------------+-------------+--------+------+----------+------------+---------+
+| id  | first_name | last_name   | gender | gpa  | seat_num | birth_date | balance |
++-----+------------+-------------+--------+------+----------+------------+---------+
+|  99 | John       | Doe         | M      | 2.78 |      004 | 1992-07-12 |  533072 |
+| 100 | Tony       | Stark       | M      | 3.15 |      009 | 1985-06-23 |  470872 |
+| 101 | Diluc      | Ragnvindr   | M      | 3.99 |      002 | 1979-10-19 |  410202 |
+| 102 | Mona       | Megistus    | F      | 3.48 |      001 | 1972-07-23 |  570200 |
+| 103 | Jean       | Gunnhildr   | F      | 3.52 |      003 | 1993-05-16 |  433000 |
+| 104 | Wierd      | Al          | M      | 1.72 |      005 | 1999-03-28 |  496090 |
+| 105 | Kwan       | Kansuda     | F      | 1.08 |      008 | 2006-02-03 |  544200 |
+| 106 | Bruce      | Wayne       | M      | 2.97 |      007 | 1982-10-24 |  466202 |
+| 107 | Miyuki     | Shirogane   | M      | 2.79 |      010 | 1982-12-12 |  496092 |
+| 108 | Harriet    | SugarCookie | F      | 3.98 |      006 | 1990-04-12 |  580800 |
+| 109 | Akedo      | Kaka        | M      | 1.23 |      111 | NULL       |  487020 |
+| 201 | Secret     | Agent       | NULL   | 3.75 |      101 | 1995-05-15 |    NULL |
+| 202 | Amber      | Eberhart    | F      | 3.85 |      102 | 1996-02-20 |    NULL |
+| 203 | Julia      | Lea         | F      | 1.60 |      103 | 2006-08-10 |  580000 |
+| 204 | Ayumi      | Shinoda     | F      | 3.95 |      104 | 1980-11-25 |  540000 |
+| 205 | Kaedehara  | Kazuha      | M      | NULL |      105 | 1995-09-30 |  490000 |
+| 206 | Yanfei     | Meng        | F      | NULL |      106 | 1998-04-05 |  600000 |
+| 207 | Albedo     | Kreideprinz | NULL   | 3.55 |      107 | 1993-12-15 |  450000 |
+| 208 | Eula       | Lawrence    | F      | 4.00 |      108 | NULL       |  570000 |
+| 209 | Childe     | Tartaglia   | M      | 3.90 |      109 | NULL       |  480000 |
+| 210 | Qiqi       | Chi         | F      | 3.65 |      110 | 1994-06-28 |  420000 |
++-----+------------+-------------+--------+------+----------+------------+---------+
+21 rows in set (0.000 sec)
+
+SELECT concat(first_name,' ',last_name) AS 'Full Name',
+    CASE 
+        WHEN gpa IS NULL THEN 'No Data'
+        WHEN gpa > (SELECT AVG(gpa) FROM Mahasiswa) THEN 'Above Average'
+        WHEN (gpa+1.5) < (SELECT AVG(gpa) FROM Mahasiswa) THEN 'Stupid'
+        ELSE 'Normal'
+    END
+    AS 'Intelligence Status'
+FROM Mahasiswa;
+
++---------------------+---------------------+
+| Full Name           | Intelligence Status |
++---------------------+---------------------+
+| John Doe            | Normal              |
+| Tony Stark          | Above Average       |
+| Diluc Ragnvindr     | Above Average       |
+| Mona Megistus       | Above Average       |
+| Jean Gunnhildr      | Above Average       |
+| Wierd Al            | Normal              |
+| Kwan Kansuda        | Stupid              |
+| Bruce Wayne         | Normal              |
+| Miyuki Shirogane    | Normal              |
+| Harriet SugarCookie | Above Average       |
+| Akedo Kaka          | Stupid              |
+| Secret Agent        | Above Average       |
+| Amber Eberhart      | Above Average       |
+| Julia Lea           | Stupid              |
+| Ayumi Shinoda       | Above Average       |
+| Kaedehara Kazuha    | No Data             |
+| Yanfei Meng         | No Data             |
+| Albedo Kreideprinz  | Above Average       |
+| Eula Lawrence       | Above Average       |
+| Childe Tartaglia    | Above Average       |
+| Qiqi Chi            | Above Average       |
++---------------------+---------------------+
+
+SELECT concat(first_name,' ',last_name) AS 'Full Name',
+    CASE 
+        WHEN gpa IS NULL THEN 'No Data'
+        WHEN gpa > (SELECT AVG(gpa) FROM Mahasiswa) THEN 'Above Average'
+        WHEN (gpa+1.5) < (SELECT AVG(gpa) FROM Mahasiswa) THEN 'Stupid'
+        ELSE 'Normal'
+    END
+    AS 'Intelligence Status',
+    gpa AS 'Score', (SELECT AVG(gpa) FROM Mahasiswa) AS 'Rata-Rata'
+FROM Mahasiswa
+ORDER BY gpa DESC;
++---------------------+---------------------+-------+-----------+
+| Full Name           | Intelligence Status | Score | Rata-Rata |
++---------------------+---------------------+-------+-----------+
+| Eula Lawrence       | Above Average       |  4.00 |  3.102105 |
+| Diluc Ragnvindr     | Above Average       |  3.99 |  3.102105 |
+| Harriet SugarCookie | Above Average       |  3.98 |  3.102105 |
+| Ayumi Shinoda       | Above Average       |  3.95 |  3.102105 |
+| Childe Tartaglia    | Above Average       |  3.90 |  3.102105 |
+| Amber Eberhart      | Above Average       |  3.85 |  3.102105 |
+| Secret Agent        | Above Average       |  3.75 |  3.102105 |
+| Qiqi Chi            | Above Average       |  3.65 |  3.102105 |
+| Albedo Kreideprinz  | Above Average       |  3.55 |  3.102105 |
+| Jean Gunnhildr      | Above Average       |  3.52 |  3.102105 |
+| Mona Megistus       | Above Average       |  3.48 |  3.102105 |
+| Tony Stark          | Above Average       |  3.15 |  3.102105 |
+| Bruce Wayne         | Normal              |  2.97 |  3.102105 |
+| Miyuki Shirogane    | Normal              |  2.79 |  3.102105 |
+| John Doe            | Normal              |  2.78 |  3.102105 |
+| Wierd Al            | Normal              |  1.72 |  3.102105 |
+| Julia Lea           | Stupid              |  1.60 |  3.102105 |
+| Akedo Kaka          | Stupid              |  1.23 |  3.102105 |
+| Kwan Kansuda        | Stupid              |  1.08 |  3.102105 |
+| Kaedehara Kazuha    | No Data             |  NULL |  3.102105 |
+| Yanfei Meng         | No Data             |  NULL |  3.102105 |
++---------------------+---------------------+-------+-----------+
+21 rows in set (0.000 sec)
+

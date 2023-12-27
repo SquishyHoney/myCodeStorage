@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Skranji&display=swap');
+p{
+    font-size: 20px;
+    font-family: 'Skranji', cursive;
+}
+
+.answer{
+    color:red;
+}

@@ -1,0 +1,19 @@
+Week 5 Appending strings
+
+arity for append = append/3
+SYNTAX : append(L1,L2,GabunganL1l2).
+
+
+FULL SYNTAX 
+append([], L, L).
+append([H|L1], L2, [H|L3]):-append(L1, L2, L3).
+
+
+
+
+
+
+
+
+
+

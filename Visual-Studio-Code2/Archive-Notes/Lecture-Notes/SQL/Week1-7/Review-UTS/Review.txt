@@ -1,0 +1,81 @@
+This is a review For SQL
+
+Database End User:
+- Casual End Users
+- Sophisticated End User
+- Naive Or parametric End User
+- Standalone User
+
+
+Actors in Database :
+- Database Administrators Database End Users
+- Database Designers
+- Database end user
+- System Analysts & Application Programmers (Software Engineers)
+
+Meta-Data, Merupakan desciptif informasi sebuah data base
+
+Constructing the database is the process of storing the data 
+on some storage medium that is controlled by the
+DBMS
+
+The structure of data files is stored in the DBMS catalog 
+separately from the access programs Program-data independence
+using DML(select) :
+
+Mengunakan concurrency control agar pemasukan data tidak bertabrakan
+
+A transaction is an executing program or process that 
+includes one or more database accesses, such as reading 
+or updating of database records
+
+Database is a collection of related data
+
+DBMS is a general purpose software system that facilitates : Defining, Contructing, Manipulating, Sharing.
+
+
+ADVANTAGES OF USING THE DBMS APPROACH
+- Controlling redundancy
+- Restricting unauthorized access
+- Providing storage structures for efficient query processing
+- Providing backup and recovery
+- Enforcing integrity constraints
+
+
+The description of a database is called the database schema
+The data in the database at a particular moment in time is called a database state or snapshot
+It is also called the current set of occurrences or instances in the database
+
+
+ENFORCING INTEGRITY CONSTRAINTS :
+    Data type constraint specifies a data type for each data item
+    Referential integrity constraint specifies that a record in one file must be related to records in other files
+    Key constraint specifies uniqueness on data item values
+
+
+Data Definition Language (DDL) : CREATE, ALTER, TRUNCATE, DROP
+Data Manipulation Language (DML) : SELECT, INSERT, UPDATE, DELETE
+
+DATABASE SYSTEM UTILITIES:
+    Loading utility is used to load existing data files into the database
+    Backup utility creates a backup copy of the database, usually by dumping the entire database onto tape
+    Database storage reorganization utility can be used to reorganize a set of database files into a different file organization to improve performance
+    Performance monitoring utility monitors database usage and provides statistics to the DBA
+
+
+
+SYNTAX :
+CHECK (gender IN ('M','F'))
+
+CREATE TABLE movies_copy (id CHAR(5) PRIMARY KEY, title VARCHAR(40)) 
+AS (SELECT id, name AS title FROM movies);
+
+SELECT
+FROM
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+LIMIT
+
+

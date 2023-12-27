@@ -1,0 +1,38 @@
+Normal Usage:
+SHOW DATABASES;
+DROP //database;
+DROP TABLE //table;
+USE //database;
+
+Inserting Data:
+    3.99 = FLOAT (5,2)
+    PRIMARY KEY,
+    UNIQUE,
+    ZEROFILL,
+    NOT NULL,
+    CHECK (//var IN ('A','B')),
+
+INSERT INTO //table ()
+VALUES (),();
+
+UPDATE _ SET _ = _ WHERE _;
+
+Remember SQL podmas:
+1. SELECT-----
+
+
+2. FROM-------
+
+
+3. WHERE------
+
+
+4. GROUP BY---
+
+
+5. HAVING-----
+
+
+6. ORDER BY---
+
+

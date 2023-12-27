@@ -1,0 +1,85 @@
+:root {
+    --ff-primary: Heebo, sans-serif;
+    --ff-secondary: Bungee, cursive;
+    --ff-accent: Bungee Shade, cursive;
+}
+  
+
+.container{
+    max-width: 100rem;
+    margin-inline:auto;
+    padding-inline:auto;
+}
+
+.product-grid{
+    display: grid;
+    gap: .25rem;
+    grid-template-columns: 
+        repeat(auto-fit,minmax(15rem,1fr));
+}
+
+h2{
+    font-family: Bungee, cursive;
+}
+
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+.card__title{
+    font-size: 1.25rem;
+    line-height: 1.1;
+    color: firebrick;
+}
+
+.card__price{
+    margin:0.25rem;
+    font-size: 1.75rem;
+}
+
+.card{
+    aspect-ratio: 1 / 1.5;
+    /*border:2px solid pink;*/
+}
+
+.stacked{
+    display: grid;
+}
+
+.stacked > *{
+    grid-column: 1/2 ;
+    grid-row: 1/2;
+}
+
+.card__img{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit:cover;
+}
+
+
+.card__content{
+    background-color: white;
+    align-self: end;
+    margin :.5rem .5rem 2rem;
+    padding:.5rem;
+    box-shadow: 0 .25rem 1rem rgb(0 0 0/ .1);
+}   
+
+
+@media (min-width: 40em){
+    .card.feat{
+        grid-row:span 2;
+        grid-column: span 2;
+    }
+
+    .card.feat .card__img{
+        aspect-ratio: 1/1.25;
+    }
+
+    .card.feat .card__title{
+        font-size: 1.75rem;
+    }
+}

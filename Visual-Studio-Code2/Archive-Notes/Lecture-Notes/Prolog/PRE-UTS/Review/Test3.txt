@@ -1,0 +1,232 @@
+Week 5 :
+2 + 3 = 5
+5 is 2+3
+Variable is 2+3
+Variable = 5
+
+addThreeAndDouble(X,Y):- Y is X+3* 2.
+addThreeAndDouble(6,Y):- Y is 6+3*2.
+                       - Y is 12
+Y = 12
+TRUE
+addThreeAndDouble(6,7):- Y is X+3* 2.
+                       - 7 is 6+3*2.
+                       - 7 is 12
+                       FALESSS
+is = 
+?-  X = 3+5.
+X = 3+5
+
+?- 3+2 = X.
+X = 3+2
+True
+
+%VARIABEL/NAMBER is equation
+?- 3 + 2 is X.
+ERORR
+
+?- Result is 2+2+2+2+2.
+Result = 10
+TRUE
+
+
+             10
+             /\
+            +  -
+           /\  /\
+          1  2 3 4
+treeORDER
++(1,2).
+
+NEW FUNCTIOn
+is(VARIABLE/NAMBER,treeOder)
+?- is(X,+(3,2))
+X = 5
+TRUE 
+
+[H|T]
+H = head
+T = tail
+
+[] = 0 len
+
+FUNCTION BARUU
+
+[c,r,e,d,o,w,i,j,a,k,s,o,n,o]
+[1,2,3,4]
+
+ln([],0).
+ln([_|L],N):-ln(L,X),N is X + 1.
+
+?- ln([1,2,3,4],HasilReturn).
+              
+ln([_|L],N):-  X = 0,N =1 ,N is X + 1.,N is X + 1.,N is X + 1. ,N is X + 1.
+_ = 
+L = 
+SKIP TRISTAN AMA AZIS AMA CREDO NGERTITITITITITITITIT 8=============D ------  (0) more please 
+   :0-<-O-<
+   0-0
+    |
+    /\
+    |
+    /\
+
+GDC -> ASIZ SLAVERY
+      
+
+
+  _ _ _  -  _ _ _ _ 
+
+Anjing
+Bukan anjing
+
+-------
+       |
+       O
+       /\
+
+
+ln([],0).
+ln([_|L],N):-ln(L,X),N is X + 1.
+
+acclen([],Acc,Acc).
+acclen([_|L],OldAcc,Length):- NewAcc is OldAcc + 1, acclen(L,NewAcc,Length).
+
+[1,2,3,4]
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ln([],0).
+ln([_|L],N):-ln(L,X),N is X + 1.
+
+N is X + 1
+
+?- ln([1,2,3,4],TaruSINI).
+
+TaruSINI = N
+N = 4
+
+
+TaruSINI = 4
+TRUE 
+
+    ln([_|L],4):-ln(L,X),N is X + 1.
+    _ = 1
+    L = [2,3,4]                                                    
+    ln([1|[2,3,4]],4):-ln([2,3,4],3),N is 3 + 1.
+                       ln([_|L],3):-ln(L,X),N is X + 1.
+                       _ = 2
+                       L = [3,4]
+                       ln([2|[3,4]],3):-ln([3,4],2),N is 2 + 1.
+                                        ln([_|L],N):-ln(L,X),N is X + 1.
+                                        _ = 3
+                                        L = 4
+                                        ln([3|4],2):-ln([4],X),N is 1 + 1.
+                                                    ln([_|L],1):-ln(L,X),N is X + 1.
+                                                    _ = 4
+                                                    L = []
+                                                    ln([4|[]],1):-ln([],X),N is 0 + 1.
+                                                                  ln([],0).
+
+
+
+acclen([],Acc,Acc).
+acclen([_|L],OldAcc,Length):- NewAcc is OldAcc + 1, acclen(L,NewAcc,Length).
+?- acclen([1,2,3,4],0,TaruSINI).
+
+acclen([1|[2,3,4]],0,Length):- NewAcc is 1, 
+                            acclen([2,3,4],1,Length).
+                            acclen([2|[3,4]],1,Length):- NewAcc is 2 , acclen([3,4],2,Length).
+
+                            CREDO NGERTITITITITITITITIT
+
+-----Credo
+?- acclen([a,b,c],0,Len). 
+acclen([a|[b,c]],0,Length):- NewAcc is 0 + 1, acclen([b,c],1,Length).
+                                              acclen([b|[c]],1,Length):- NewAcc is 1 + 1, acclen([c],2,Length).
+                                                                                          acclen([c|[]],2,Length):- NewAcc is 2 + 1, acclen([],3,Length).
+acclen([],Acc,Acc).
+acclen([],3,Length)
+Acc = 3
+Acc = Length
+Le
+
+Asiz = X + rambut keriting
+
+
+%VARIABEL/NAMBER is equation
+%is(VARIABLE/NAMBER,TREEORDER)
+:nerd KODINGAN
+
+1. X = 3 * 4
+2. X = 12
+3. Arguments are not sufficiently instantiated
+4. Y = X true
+5. TRUE 
+6. TRUE
+7. Arguments are not sufficiently instantiated
+8. X = 5
+--- 9. FALSE 
+10. X = 3
+
+11. TRUE 
+12. TRUE 
+13. TRUE
+14. TRUE 
+15. TRUE 
+
+
+
+
+
+?- increment(4,5)
+TRUE 
+?- increment(4,6)
+FALSE
+
+
+increment(X,Y):- Y is X + 1.
+
+x =:= Y
+x =\= Y
+
+kiri kanan 
+
+positive
+ODDD
+
+5 4 issaaccMax([H|T],A,Max):- H > A,accMax(T,H,Max).accMax([H|T],A,Max):- H > A,accMax(T,H,Max).accMax([H|T],A,Max):- H > A,accMax(T,H,Max).accMax([H|T],A,Max):- H > A,accMax(T,H,Max).accMax([H|T],A,Max):- H > A,accMax(T,H,Max).accMax([H|T],A,Max):- H > A,accMax(T,H,Max).accMax([H|T],A,Max):- H > A,accMax(T,H,Max).accMax([H|T],A,Max):- H > A,accMax(T,H,Max).accMax([H|T],A,Max):- H > A,accMax(T,H,Max).accMax([H|T],A,Max):- H > A,accMax(T,H,Max).accMax([H|T],A,Max):- H > A,accMax(T,H,Max).
+
+apakahINIPOSITIF(X):- X > 0.
+apakahINIODD(X):- mod(X,2) =:= 1.
+jawaban(X):apakahINIPOSITIF(X),apakahINIODD(X).
+
+
+accMax([H|T],A,Max):- H > A,accMax(T,H,Max). 
+accMax([H|T],A,Max):- H =< A,accMax(T,A,Max). 
+accMax([],A,A). 
+
+
+
+?- accMax([1,0,5,4],0,5)
+accMax([1|[0,5,4]],0,Max):- 1 > 0,accMax([0,5,4],1,Max). 
+                                    %accMax([0|[5,4]],1,Max):- 0 > 1,accMax(T,H,Max). 
+                                    accMax([0|[5,4]],1,Max):- accMax([5,4],1,Max). 
+                                                                accMax([5|[4]],1,Max):- accMax([4],5,Max). 
+                                                                                        %accMax([4|[]],5,Max):- 4 > 5,accMax(T,H,Max).
+                                                                                        accMax([4|[]],5,Max):- accMax([],5,M555). 
+                                                                                                            %accMax([H|T],A,5):- H > A,accMax(T,H,5).
+                                                                                                            %accMax([H|T],A,5):- H =< A,accMax(T,A,5). 
+                                                                                                             accMax([],5,5). 
+                                                                                                             A = 5
+                                                                                                             A = Max 
+                                                                                                             Max = 5
+
+
+Tuhan Berkat
+
+
+
+
+

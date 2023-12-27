@@ -1,0 +1,6 @@
+SHOW DATABASES;
+USE databasename;
+
+if Else
+gender Char(1) CHECK(gender IN ('M','F'));
+

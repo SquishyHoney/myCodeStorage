@@ -1,0 +1,368 @@
+body{
+    background-image:url(https://wallpaperaccess.com/full/1302751.jpg);
+    margin:0px;
+    color: rgba(63, 36, 0, 0.75);
+    font-family: consolas;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: burlywood;
+}
+
+#list{
+    display: flex;
+    flex-direction: row;
+}
+
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+li{
+    margin: 10px;
+}
+
+
+/*HOME ___________________________*/
+#rick{
+    border: 2px solid rgb(168, 131, 82);
+    border-radius: 15px;
+    margin:10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center ;
+    text-align: center;
+    font-family: consolas;
+    background-color: rgb(223, 198, 166,0.75);
+    color: rgba(63, 36, 0, 0.75);
+    padding:10px;
+}
+
+#ridck{
+    margin-top: 20px;
+}
+
+#eimg{
+    border-radius: 15px;
+}
+
+#butt3{
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 25px;
+    background-color:rgb(223, 185, 137) ;
+    border: 0.5px solid rgb(163, 133, 93);
+    color:rgba(63, 36, 0, 0.75);
+}
+.linkk{
+    color:rgba(140, 93, 33, 0.75);
+    font-size: 20px;
+}
+
+#red{
+    color: red;
+    margin: 0px;
+}
+
+#white{
+    color: white;
+    margin: 0px;
+}
+
+#butt3:hover{
+    background-color: rgb(171, 99, 12);
+}
+
+#butt:hover{
+    background-color: rgb(171, 99, 12);
+}
+
+button:hover{
+    background-color: rgb(222, 150, 62);
+}
+
+.linkk:hover{
+    border: 25px;
+    color:rgba(105, 64, 10, 0.75);
+}
+/*BELAJAR_________________________*/
+
+#hasildata{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: row;
+}
+
+#coloring{
+    background-color: rgba(212, 139, 44, 0.75);
+}
+
+#search{
+    width: 1000px;
+    height: 30px;
+    padding: 10px;
+    border-left: 0px;
+    border-top-left-radius: 15px;
+    font-size: 25px;
+    border-bottom-left-radius: 15px;
+    background-color:rgb(229, 193, 145) ;
+    border: 0.5px solid rgb(163, 133, 93);
+    color:rgba(63, 36, 0, 0.75);
+}
+
+
+#pearl{
+    border-radius: 25px;
+    width: 300px;
+    height: 400px;
+}
+
+#dataa{
+    border: 0px solid black;
+    padding:90px;
+    border-radius: 25px;
+    color:rgb(40, 30, 15);
+}
+
+
+#atas{
+    border: 0px solid black;
+    display: flex;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    margin-top: 20px;
+}
+
+#butt{
+    width: 100px;
+    height: 52px;
+    padding: 10px;
+    font-size: 25px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color:rgb(229, 193, 145) ;
+    border: 0.5px solid rgb(163, 133, 93);
+    color:rgba(63, 36, 0, 0.75);
+}
+
+#butt2{
+    font-size: 15px;
+    background-color:rgb(229, 193, 145) ;
+    border: 0.5px solid rgb(163, 133, 93);
+    color:rgba(63, 36, 0, 0.75);
+}
+
+#atasimg{
+    margin-right:50px ;
+}
+
+
+#ataskata{
+    display:flex;
+    flex-direction: column;
+}
+
+#black{
+    font-size: 50px;
+    color:rgba(11, 0, 0) ;
+}
+
+span{
+    margin:40px;
+}
+
+#asal{
+    margin-right:50px;
+}
+
+#kartu{
+    padding: 10px;
+    border: 2px solid rgb(209, 130, 28);
+    margin: 20px;
+    background-color:rgb(222, 175, 114) ;
+}
+
+#kartu img{
+    width: 200px;
+    height: 300px;
+}
+
+/*about us________________________*/
+
+
+@media only screen and (min-width: 760px) {
+    #erimg{
+        width: 150px;
+        height: 200px;
+    }    
+    #rick2{
+        border: 2px solid rgb(168, 131, 82);
+        border-radius: 15px;
+        margin:10px;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center ;
+        text-align: center;
+        font-family: consolas;
+        background-color: rgb(223, 198, 166,0.75);
+        color: rgba(63, 36, 0, 0.75);
+        padding:10px;
+    }
+    
+    #rick2 div{
+        margin: 20px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    #eimg{
+        width: 300px;
+        height: 300px;
+    }
+
+    #erimg{
+        width: 200px;
+        height: 300px;
+    }    
+    #rick2{
+        border: 2px solid rgb(168, 131, 82,0);
+        border-radius: 15px;
+        margin:10px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center ;
+        text-align: center;
+        font-family: consolas;
+        
+        color: rgba(63, 36, 0, 0.75);
+        padding:10px;
+        font-weight: lighter;
+    }
+    
+    #rick2 div{
+        margin: 20px;
+    }
+
+    #hasildata{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        flex-direction: row;
+    }
+    
+    #coloring{
+        background-color: rgba(212, 139, 44, 0.75);
+    }
+    
+    #search{
+        width: 220px;
+        height: 30px;
+        
+        border-left: 0px;
+        border-top-left-radius: 15px;
+        
+        border-bottom-left-radius: 15px;
+        background-color:rgb(229, 193, 145) ;
+        border: 0.5px solid rgb(163, 133, 93);
+        color:rgba(63, 36, 0, 0.75);
+    }
+    
+    
+    #pearl{
+        border-radius: 25px;
+        width: 300px;
+        height: 400px;
+    }
+    
+    #dataa{
+        border: 0px solid black;
+        padding:0px;
+        border-radius: 25px;
+        color:rgb(40, 30, 15);
+    }
+    
+    
+    #atas{
+        border: 0px solid black;
+        display: flex;
+        border-radius: 25px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: left;
+        margin-top: 0px;
+    }
+    
+    #butt{
+        width: 70px;
+        height: 50px;
+        
+        font-size: 25px;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        background-color:rgb(229, 193, 145) ;
+        border: 0.5px solid rgb(163, 133, 93);
+        color:rgba(63, 36, 0, 0.75);
+    }
+    
+    #butt2{
+        font-size: 25px;
+        border-radius: 55px;
+        background-color:rgb(229, 193, 145) ;
+        border: 0.5px solid rgb(163, 133, 93);
+        color:rgba(63, 36, 0, 0.75);
+    }
+    
+    #atasimg{
+        margin-right:50px ;
+    }
+    
+    
+    #ataskata{
+        display:flex;
+        flex-direction: column;
+    }
+    
+    #black{
+        font-size: 50px;
+        color:rgba(11, 0, 0) ;
+    }
+    
+    span{
+        color: rgba(47, 38, 26, 0.75);
+        margin:10px;
+    }
+    
+    #coloring2{
+        
+        color: rgba(110, 87, 56, 0.75);
+    }
+
+    #asal{
+        color: rgba(47, 38, 26, 0.75);
+        margin-right:20px;
+    }
+    
+    #kartu{
+        padding: 10px;
+        border: 2px solid rgb(209, 130, 28);
+        margin: 5px;
+        background-color:rgb(222, 175, 114) ;
+    }
+    
+    #kartu img{
+        width: 320px;
+        height: 350px;
+    }
+}

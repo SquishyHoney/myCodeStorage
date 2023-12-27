@@ -1,0 +1,20 @@
+.container{
+    outline:2.5px solid hotpink;
+    padding:1rem;
+}
+
+.box{
+    border: 2px solid lightblue;
+    background-color: rgb(139, 139, 215);
+    color:rgb(0, 0, 0);
+    font-family: consolas;
+
+    width: 5.5rem;
+}
+
+.auto-grid{
+    display: grid;
+    gap:1rem;
+    grid-template-columns: 
+        repeat(auto-fit, minmax(min(6rem,100%),1fr));
+}

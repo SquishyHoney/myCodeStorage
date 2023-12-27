@@ -1,0 +1,55 @@
+
+
+
+
+
+
+
+loopname : LOOP
+    IF ... THEN ITERATE
+    IF ... THEN LEAVE
+END LOOP loopname;
+
+
+WHILE ... DO 
+END WHILE;
+
+
+REPEAT
+    ...
+UNTIL ... END REPEAT;
+
+
+
+CREATE TRIGGER add_ 
+    AFTER 
+        INSERT ON emp
+    FOR EACH ROW
+        INSERT INTO siswa(nama) VALUES('test');
+OLD NEW
+
+
+
+
+/*OUTER RIGHT*/
+SELECT * FROM
+a
+RIGHT JOIN
+b ON (a.id = b.id)
+WHERE b.id IS NULL;
+
+/*FULL OUTER EXCLUDE INNER*/
+SELECT * FROM a
+WHERE id NOT IN (SELECT id FROM b)
+UNION
+SELECT * FROM b
+WHERE id NOT IN (SELECT id FROM a);
+
+/*FULL JOIN*/
+SELECT * FROM a
+UNION
+SELECT * FROM b;
+
+
+SELECT DISTINCT country
+FROM lulusan;

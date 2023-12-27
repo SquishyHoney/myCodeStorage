@@ -1,0 +1,57 @@
+Program Terdiri dari :
+->FACT
+->Rule
+
+Komputasi dari deduksi/INFERENSI
+------------------ WELCOME TO PROLOG------------------
+Fact :
+woman(mia).
+
+Rule :
+strong(sukuna):-dead(gojo),four(arms)
+% HEAD                BODY
+
+Clauses(Jumlah Lines) (5) :
+1. happy(yolanda).
+2. listens2music(mia).
+3. listens2music(yolanda):- happy(yolanda).
+4. playsAirGuitar(mia):- listens2music(mia).
+5. playsAirGuitar(yolanda):- listens2music(yolanda).
+
+Predicates (Unique Modifier) (3 = {happy,listens2music,playsAirGuitar}):
+1. happy(yolanda).
+2. listens2music(mia).
+3. listens2music(yolanda):- happy(yolanda).
+4. playsAirGuitar(mia):- listens2music(mia).
+5. playsAirGuitar(yolanda):- listens2music(yolanda).
+
+"," Conjunction (AND)
+";" Disjunction (OR)
+
+Instantces : 
+number(one).
+number(two).
+number(three).
+?- number(X).
+X = one
+X = two
+X = three
+TRUE
+
+ATOMS
+-> lowercase
+-> 'Kutip'
+-> ;,:-
+NUMBERS 
+-> 12.45
+-> -34
+-> 8
+VARIABLES
+-> X
+-> Yolanda
+COMPLES TERMS:
+->woman(mia).
+ARITY
+->woman(mia) AR = 1 -> woman/1
+->love(mia,john) AR = 2 -> love/2
+
