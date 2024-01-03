@@ -1,0 +1,6 @@
+str 99
+dex 98
+int 97
+luck 96
+Micheal
+Sword
